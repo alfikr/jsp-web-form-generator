@@ -1,0 +1,159 @@
+package br.inf.carlos.webformgenerator.object;
+
+import java.io.Serializable;
+import java.lang.reflect.Field;
+
+import br.inf.carlos.webformgenerator.annotations.WebFormBean;
+import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
+import br.inf.carlos.webformgenerator.enums.WebFormComponentType;
+
+/**
+ * Classe para abstrair um componente HTML a ser gerado. Os atributos desta
+ * classe são baseados nos campos da annotação WebFormBeanColumn.
+ * 
+ * @see WebFormBeanColumn
+ * 
+ * @author Carlos A. Junior
+ */
+public class WebFormObject implements Serializable
+{
+	private static final long serialVersionUID = 6808552980616794116L;
+
+	private String componentCssClass;
+	
+	private String componentId;
+	
+	private String componentName;
+	
+	private String componentLabel;
+	
+	private String componentValue;
+	
+	private String componentElementsData;
+	
+	private int componentSize;
+	
+	private int componentMaxLength;
+	
+	private WebFormComponentType componentType;
+	
+	private WebFormBean bean;
+	
+	private WebFormBeanColumn beanColumn;
+	
+	private Field field;
+	
+	public WebFormObject ()
+	{
+		super();
+	}
+
+	public String getComponentCssClass() {
+		return componentCssClass;
+	}
+
+	public void setComponentCssClass(String componentCssClass) {
+		this.componentCssClass = componentCssClass;
+	}
+
+	public String getComponentId() {
+		return componentId;
+	}
+
+	public void setComponentId(String componentId) {
+		this.componentId = componentId;
+	}
+
+	public String getComponentName() {
+		return componentName;
+	}
+
+	public void setComponentName(String componentName) {
+		this.componentName = componentName;
+	}
+
+	public String getComponentLabel() {
+		return componentLabel;
+	}
+
+	public void setComponentLabel(String componentLabel) {
+		this.componentLabel = componentLabel;
+	}
+
+	public String getComponentValue() {
+		return componentValue;
+	}
+
+	public void setComponentValue(String componentValue) {
+		this.componentValue = componentValue;
+	}
+
+	public String getComponentElementsData() {
+		return componentElementsData;
+	}
+
+	public void setComponentElementsData(String componentElementsData) {
+		this.componentElementsData = componentElementsData;
+	}
+
+	public int getComponentSize() {
+		return componentSize;
+	}
+
+	public void setComponentSize(int componentSize) {
+		this.componentSize = componentSize;
+	}
+
+	public int getComponentMaxLength() {
+		return componentMaxLength;
+	}
+
+	public void setComponentMaxLength(int componentMaxLength) {
+		this.componentMaxLength = componentMaxLength;
+	}
+
+	public WebFormComponentType getComponentType() {
+		return componentType;
+	}
+
+	public void setComponentType(WebFormComponentType componentType) {
+		this.componentType = componentType;
+	}
+
+	public WebFormBean getBean() {
+		return bean;
+	}
+
+	public void setBean(WebFormBean bean) {
+		this.bean = bean;
+	}
+
+	public WebFormBeanColumn getBeanColumn() {
+		return beanColumn;
+	}
+
+	public void setBeanColumn(WebFormBeanColumn beanColumn) {
+		this.beanColumn = beanColumn;
+	}
+
+	public Field getField() {
+		return field;
+	}
+
+	public void setField(Field field) {
+		this.field = field;
+	}
+
+	@Override
+	public String toString() {
+		return "WebFormObject [bean=" + bean + ", beanColumn=" + beanColumn
+				+ ", componentCssClass=" + componentCssClass
+				+ ", componentElementsData=" + componentElementsData
+				+ ", componentId=" + componentId + ", componentLabel="
+				+ componentLabel + ", componentMaxLength=" + componentMaxLength
+				+ ", componentName=" + componentName + ", componentSize="
+				+ componentSize + ", componentType=" + componentType
+				+ ", componentValue=" + componentValue + ", field=" + field
+				+ "]";
+	}
+}
