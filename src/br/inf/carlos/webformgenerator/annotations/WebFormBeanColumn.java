@@ -80,7 +80,7 @@ public @interface WebFormBeanColumn
 	 * 
 	 * @return void
 	 */
-	public String 					value()			default "";
+	public String[]					value()			default "";
 	
 	/**
 	 * Seta o nome da variável que irá ser conter a coleção de elementos a ser mostrada
@@ -89,4 +89,18 @@ public @interface WebFormBeanColumn
 	 * @return void
 	 */
 	public String 					elements()		default "";
+	
+	/**
+	 * Seta a quantidade de colunas para o componente TextArea.
+	 * 
+	 * @return void
+	 */
+	public int						cols () 		default 80;
+	
+	/**
+	 * Seta a quantidade de linhas para o componente TextArea.
+	 * 
+	 * @return void
+	 */
+	public int						rows () 		default 10;
 }

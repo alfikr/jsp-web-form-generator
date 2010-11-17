@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import br.inf.carlos.webformgenerator.layout.WebFormLayout;
+
 
 
 public class WebFormFile
@@ -51,6 +53,7 @@ public class WebFormFile
 			FileOutputStream out = new FileOutputStream(file);
 			
 			out.write(layout.renderWebFormLayout(components).getBytes());
+			System.out.println("Escrevendo o conteúdo do arquivo: " + file.getName());
 			out.flush();
 			out.close();
 		}

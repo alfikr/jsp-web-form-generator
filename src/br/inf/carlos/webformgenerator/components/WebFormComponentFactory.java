@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
+import br.inf.carlos.webformgenerator.components.impl.WebFormComponentCheckBox;
 import br.inf.carlos.webformgenerator.components.impl.WebFormComponentSelect;
 import br.inf.carlos.webformgenerator.components.impl.WebFormComponentText;
+import br.inf.carlos.webformgenerator.components.impl.WebFormComponentTextArea;
 import br.inf.carlos.webformgenerator.object.WebFormObject;
 import br.inf.carlos.webformgenerator.util.WebFormUtil;
 
@@ -84,6 +86,12 @@ public class WebFormComponentFactory
 			break;
 			case SELECT:
 				component = new WebFormComponentSelect(object);
+			break;
+			case TEXTAREA:
+				component = new WebFormComponentTextArea(object);
+			break;
+			case CHECKBOX:
+				component = new WebFormComponentCheckBox(object);
 			break;
 		}
 		
