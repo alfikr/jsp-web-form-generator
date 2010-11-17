@@ -8,9 +8,9 @@ import br.inf.carlos.webformgenerator.object.WebFormObject;
  * 
  * @author Carlos A. Junior
  */
-public class WebFormComponentText  extends WebFormComponent
+public class WebFormComponentTextArea  extends WebFormComponent
 {
-	public WebFormComponentText(WebFormObject object)
+	public WebFormComponentTextArea(WebFormObject object)
 	{
 		super(object);
 	}
@@ -25,14 +25,14 @@ public class WebFormComponentText  extends WebFormComponent
 		{
 			default:
 			case TEXT:
-				component += "							<input type='text' class='" + this.getObject().getComponentCssClass() + "' ";
-				component += " size='" + this.getObject().getComponentSize() + "' ";
+				component += "							<textarea class='" + this.getObject().getComponentCssClass() + "' ";
 				component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' ";
-				component += " maxlength='" + this.getObject().getComponentMaxLength() + "' />\n";
+				component += " rows='" + this.getObject().getComponentRows() + "' cols='" + this.getObject().getComponentCols() + "' ";
+				component += " ></textarea>\n";
 			break;
 		}
 		
-		html += "				 <label>\n";
+		html += "					<label>\n";
 		html += "							" + this.getComponentLabel() + ": \n";
 		html += "							<br/>\n";
 		html += component;

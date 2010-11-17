@@ -4,7 +4,11 @@ import br.inf.carlos.webformgenerator.object.WebFormObject;
 import br.inf.carlos.webformgenerator.util.WebFormUtil;
 
 
-
+/**
+ * Classe abstrata para padronizar todos os componentes HTML da aplicação.
+ * 
+ * @author Carlos A. Junior
+ */
 public abstract class WebFormComponent implements IWebFormComponent
 {
 	private WebFormObject object;

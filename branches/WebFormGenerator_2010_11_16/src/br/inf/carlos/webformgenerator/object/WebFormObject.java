@@ -2,6 +2,7 @@ package br.inf.carlos.webformgenerator.object;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 import br.inf.carlos.webformgenerator.annotations.WebFormBean;
 import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
@@ -27,13 +28,17 @@ public class WebFormObject implements Serializable
 	
 	private String componentLabel;
 	
-	private String componentValue;
+	private String[] componentValue;
 	
 	private String componentElementsData;
 	
 	private int componentSize;
 	
 	private int componentMaxLength;
+	
+	private int componentCols;
+	
+	private int componentRows;
 	
 	private WebFormComponentType componentType;
 	
@@ -80,11 +85,11 @@ public class WebFormObject implements Serializable
 		this.componentLabel = componentLabel;
 	}
 
-	public String getComponentValue() {
+	public String[] getComponentValue() {
 		return componentValue;
 	}
 
-	public void setComponentValue(String componentValue) {
+	public void setComponentValue(String[] componentValue) {
 		this.componentValue = componentValue;
 	}
 
@@ -110,6 +115,22 @@ public class WebFormObject implements Serializable
 
 	public void setComponentMaxLength(int componentMaxLength) {
 		this.componentMaxLength = componentMaxLength;
+	}
+
+	public int getComponentCols() {
+		return componentCols;
+	}
+
+	public void setComponentCols(int componentCols) {
+		this.componentCols = componentCols;
+	}
+
+	public int getComponentRows() {
+		return componentRows;
+	}
+
+	public void setComponentRows(int componentRows) {
+		this.componentRows = componentRows;
 	}
 
 	public WebFormComponentType getComponentType() {
@@ -147,13 +168,14 @@ public class WebFormObject implements Serializable
 	@Override
 	public String toString() {
 		return "WebFormObject [bean=" + bean + ", beanColumn=" + beanColumn
-				+ ", componentCssClass=" + componentCssClass
-				+ ", componentElementsData=" + componentElementsData
-				+ ", componentId=" + componentId + ", componentLabel="
-				+ componentLabel + ", componentMaxLength=" + componentMaxLength
-				+ ", componentName=" + componentName + ", componentSize="
-				+ componentSize + ", componentType=" + componentType
-				+ ", componentValue=" + componentValue + ", field=" + field
-				+ "]";
+				+ ", componentCols=" + componentCols + ", componentCssClass="
+				+ componentCssClass + ", componentElementsData="
+				+ componentElementsData + ", componentId=" + componentId
+				+ ", componentLabel=" + componentLabel
+				+ ", componentMaxLength=" + componentMaxLength
+				+ ", componentName=" + componentName + ", componentRows="
+				+ componentRows + ", componentSize=" + componentSize
+				+ ", componentType=" + componentType + ", componentValue="
+				+ Arrays.toString(componentValue) + ", field=" + field + "]";
 	}
 }

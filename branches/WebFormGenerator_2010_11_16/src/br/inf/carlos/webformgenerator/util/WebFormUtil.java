@@ -129,6 +129,9 @@ public class WebFormUtil
 		
 		object.setField				(field);
 		object.setComponentValue	(column.value());
+		object.setComponentCols		(column.cols());
+		
+		object.setComponentRows		(column.rows());
 		object.setComponentElementsData(column.elements());
 		
 		if(object.getComponentLabel() != null || object.getComponentLabel().equals(""))
