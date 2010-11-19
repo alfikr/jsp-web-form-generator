@@ -192,6 +192,8 @@ public class WebFormUtil
 		
 		object.setComponentRows		(column.rows());
 		object.setMascaraJavascript	(column.mascara());
+		object.setComponentDisabled	(column.disabled());
+		object.setComponentReadOnly	(column.readOnly());
 		
 		object.setComponentElementsData				(column.elements());
 		object.setComponentElementsDisplayAttribute	(column.elementsDisplayAttribute());

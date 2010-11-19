@@ -27,6 +27,11 @@ public class WebFormComponentSelect  extends WebFormComponent
 			component += "						<select class='" + this.getObject().getComponentCssClass() + "' ";
 			component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + ".id'>\n ";
 			
+			if(this.getObject().isComponentDisabled())
+			{
+				component += " disabled='disabled' ";
+			}
+			
 			String options = "							<option value='S' selected='selected'>-Selecione um " + this.getComponentLabel() + "</option>\n";
 			
 			if(this.getObject().getComponentElementsData() != null && !this.getObject().getComponentElementsData().equals(""))

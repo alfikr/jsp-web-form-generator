@@ -44,6 +44,10 @@ public class WebFormObject implements Serializable
 	
 	private int componentRows;
 	
+	private boolean componentDisabled;
+	
+	private boolean componentReadOnly;
+	
 	private WebFormComponentType componentType;
 	
 	private WebFormBean bean;
@@ -197,11 +201,28 @@ public class WebFormObject implements Serializable
 		this.componentElementsValueAttribute = componentElementsValueAttribute;
 	}
 
+	public boolean isComponentDisabled() {
+		return componentDisabled;
+	}
+
+	public void setComponentDisabled(boolean componentDisabled) {
+		this.componentDisabled = componentDisabled;
+	}
+
+	public boolean isComponentReadOnly() {
+		return componentReadOnly;
+	}
+
+	public void setComponentReadOnly(boolean componentReadOnly) {
+		this.componentReadOnly = componentReadOnly;
+	}
+
 	@Override
 	public String toString() {
 		return "WebFormObject [bean=" + bean + ", beanColumn=" + beanColumn
 				+ ", componentCols=" + componentCols + ", componentCssClass="
-				+ componentCssClass + ", componentElementsData="
+				+ componentCssClass + ", componentDisabled="
+				+ componentDisabled + ", componentElementsData="
 				+ componentElementsData
 				+ ", componentElementsDisplayAttribute="
 				+ componentElementsDisplayAttribute
@@ -209,9 +230,10 @@ public class WebFormObject implements Serializable
 				+ componentElementsValueAttribute + ", componentId="
 				+ componentId + ", componentLabel=" + componentLabel
 				+ ", componentMaxLength=" + componentMaxLength
-				+ ", componentName=" + componentName + ", componentRows="
-				+ componentRows + ", componentSize=" + componentSize
-				+ ", componentType=" + componentType + ", componentValue="
+				+ ", componentName=" + componentName + ", componentReadOnly="
+				+ componentReadOnly + ", componentRows=" + componentRows
+				+ ", componentSize=" + componentSize + ", componentType="
+				+ componentType + ", componentValue="
 				+ Arrays.toString(componentValue) + ", field=" + field
 				+ ", mascaraJavascript=" + mascaraJavascript + "]";
 	}

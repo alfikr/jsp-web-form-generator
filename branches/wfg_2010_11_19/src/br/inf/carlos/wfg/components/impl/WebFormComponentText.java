@@ -24,6 +24,17 @@ public class WebFormComponentText  extends WebFormComponent
 		component += "							<input type='text' class='" + this.getObject().getComponentCssClass() + "' ";
 		component += " size='" + this.getObject().getComponentSize() + "' ";
 		component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' ";
+		
+		if(this.getObject().isComponentDisabled())
+		{
+			component += " disabled='disabled' ";
+		}
+		
+		if(this.getObject().isComponentReadOnly())
+		{
+			component += " readOnly='readOnly' ";
+		}
+		
 		component += " maxlength='" + this.getObject().getComponentMaxLength() + "' />\n";
 		
 		html += "				 <label>\n";

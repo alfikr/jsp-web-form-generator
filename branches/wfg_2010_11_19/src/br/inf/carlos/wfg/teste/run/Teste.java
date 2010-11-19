@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import br.inf.carlos.wfg.WebFormApplication;
 
-
 public class Teste {
 	
 	public static void main(String[] args)

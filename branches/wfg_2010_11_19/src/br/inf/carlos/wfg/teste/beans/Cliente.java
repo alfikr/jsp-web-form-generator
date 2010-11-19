@@ -7,6 +7,11 @@ import br.inf.carlos.wfg.enums.WebFormComponentType;
 @WebFormBean(elVarName = "cliente", controllerFolderName = "cliente")
 public class Cliente
 {
+	@WebFormBeanColumn(
+		size=5,
+		maxLength=5,
+		disabled=true
+	)
 	private Long id;
 	@WebFormBeanColumn(size=60, maxLength=200)
 	private String nome;
