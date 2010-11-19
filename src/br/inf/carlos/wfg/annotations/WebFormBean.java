@@ -27,4 +27,18 @@ public @interface WebFormBean
 	 * @return String controllerName
 	 */
 	public String controllerFolderName();
+	
+	/**
+	 * The action URL of HTML Form.
+	 *  
+	 * @return
+	 */
+	public String formActionTarget() 	default "";
+	
+	/**
+	 * The submit type.
+	 * 
+	 * @return
+	 */
+	public String method() 				default "post";
 }

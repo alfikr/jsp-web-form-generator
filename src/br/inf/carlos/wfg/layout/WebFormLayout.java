@@ -22,7 +22,11 @@ public class WebFormLayout implements IWebFormLayout
 		String html = "";
 		html += "<div>\n";
 		html += "	<fieldset>\n";
-		html += "		<form action='' method='post'>\n";
+		
+		String actionURL 	= WebFormUtil.getHTMLFormActionURL(controllers);
+		String method		= WebFormUtil.getFormSubmitMethod(controllers);
+		
+		html += "		<form action='<c:url value=\"" + actionURL + "\"/>' method='" + method + "'>\n";
 		html += "			<table width='100%' border='0'>\n";
 
 		
