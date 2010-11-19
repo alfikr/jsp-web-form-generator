@@ -29,7 +29,7 @@ public class Cliente
 	
 	@WebFormBeanColumn(
 		label="Tipo do Cliente",
-		type=WebFormComponentType.CHECKBOX,
+		type=WebFormComponentType.RADIOBOX,
 		value={"VIP", "NORMAL", "DESCONTO", "DIFERENCIADO"}
 	)
 	private String perfil;
