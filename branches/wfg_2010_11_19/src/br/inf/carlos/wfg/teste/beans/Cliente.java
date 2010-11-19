@@ -18,6 +18,13 @@ public class Cliente
 	private String telefoneTrabalho;
 	
 	@WebFormBeanColumn(
+		label="Tipo do Cliente",
+		type=WebFormComponentType.CHECKBOX,
+		value={"VIP", "NORMAL", "DESCONTO", "DIFERENCIADO"}
+	)
+	private String perfil;
+	
+	@WebFormBeanColumn(
 		size=20, 
 		maxLength=20, 
 		type=WebFormComponentType.SELECT, 
@@ -55,5 +62,11 @@ public class Cliente
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	public String getPerfil() {
+		return perfil;
+	}
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
 	}
 }

@@ -2,6 +2,7 @@ package br.inf.carlos.wfg.components.impl;
 
 import br.inf.carlos.wfg.components.WebFormComponent;
 import br.inf.carlos.wfg.object.WebFormObject;
+import br.inf.carlos.wfg.util.WebFormUtil;
 
 /**
  * Esta classe concretiza a geração do componente INPUT Checkbox.
@@ -18,19 +19,45 @@ public class WebFormComponentCheckBox  extends WebFormComponent
 	@Override
 	public String renderComponent()
 	{
-		String html = "";
-		String component = "";
+		String htmlFinal = "";
 		
-		component += "							<input type='checkbox' class='" + this.getObject().getComponentCssClass() + "' ";
-		component += " value='" + this.getObject().getComponentValue() + "' ";
-		component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' />";
+		if(this.getObject().getComponentValue() != null)
+		{
+			for (String value : this.getObject().getComponentValue())
+			{
+				String html 		= "";
+				String component 	= "";
+				
+				component += "								<input type='checkbox' class='" + this.getObject().getComponentCssClass() + "' ";
+				component += " value='" + value + "' ";
+				component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' />";
+				
+				html 		+= "				 		<label>\n";
+				html 		+= component;
+				html 		+= "&nbsp;" + WebFormUtil.capitalize(value) + ". \n";
+				html 		+= "							<br/>\n";
+				html 		+= "						</label>\n";
+				
+				html 		+= "						<br/>\n";
+				
+				htmlFinal 	+= html;
+			}
+			
+			if(this.getObject().getComponentLabel() != null && !this.getObject().getComponentLabel().equals(""))
+			{
+				String label = "";
+				
+				label += "								<p>\n";
+				label += "									<b>" + this.getObject().getComponentLabel() + "</b><br/>\n";
+				label += "									<br/>\n";
+				label += "									" + htmlFinal ;
+				label += "								</p>\n";
+				
+				htmlFinal = label;
+			}
+			
+		}
 		
-		html += "				 <label>\n";
-		html += component;
-		html += "&nbsp;" + this.getComponentLabel() + ". \n";
-		html += "							<br/>\n";
-		html += "						</label>\n";
-		
-		return html;
+		return htmlFinal;
 	}
 }
