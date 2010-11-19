@@ -124,4 +124,8 @@ public @interface WebFormBeanColumn
 	 * @return
 	 */
 	public String					mascara()		default "";
+	
+	public boolean					disabled()		default false;
+	
+	public boolean					readOnly()		default false;
 }

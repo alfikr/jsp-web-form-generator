@@ -21,16 +21,16 @@ public class WebFormComponentTextArea  extends WebFormComponent
 		String html = "";
 		String component = "";
 		
-		switch (this.getObject().getComponentType())
+		component += "							<textarea class='" + this.getObject().getComponentCssClass() + "' ";
+		component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' ";
+		
+		if(this.getObject().isComponentDisabled())
 		{
-			default:
-			case TEXT:
-				component += "							<textarea class='" + this.getObject().getComponentCssClass() + "' ";
-				component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' ";
-				component += " rows='" + this.getObject().getComponentRows() + "' cols='" + this.getObject().getComponentCols() + "' ";
-				component += " ></textarea>\n";
-			break;
+			component += " disabled='disabled' ";
 		}
+		
+		component += " rows='" + this.getObject().getComponentRows() + "' cols='" + this.getObject().getComponentCols() + "' ";
+		component += " ></textarea>\n";
 		
 		html += "					<label>\n";
 		html += "							" + this.getComponentLabel() + ": \n";

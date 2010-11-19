@@ -30,6 +30,12 @@ public class WebFormComponentCheckBox  extends WebFormComponent
 				
 				component += "								<input type='checkbox' class='" + this.getObject().getComponentCssClass() + "' ";
 				component += " value='" + value + "' ";
+				
+				if(this.getObject().isComponentDisabled())
+				{
+					component += " disabled='disabled' ";
+				}
+				
 				component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' />";
 				
 				html 		+= "				 		<label>\n";
