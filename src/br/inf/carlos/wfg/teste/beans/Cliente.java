@@ -17,7 +17,13 @@ public class Cliente
 	@WebFormBeanColumn(size=20, maxLength=20, mascara="(99)9999-9999")
 	private String telefoneTrabalho;
 	
-	@WebFormBeanColumn(size=20, maxLength=20, type=WebFormComponentType.SELECT, elements="cidades")
+	@WebFormBeanColumn(
+		size=20, 
+		maxLength=20, 
+		type=WebFormComponentType.SELECT, 
+		elements="cidades",
+		elementsDisplayAttribute="cidades.nome",
+		elementsValueAttribute="cidades.idCidade")
 	private Cidade cidade;
 	
 	public Cidade getCidade() {

@@ -183,8 +183,11 @@ public class WebFormUtil
 		object.setComponentCols		(column.cols());
 		
 		object.setComponentRows		(column.rows());
-		object.setComponentElementsData(column.elements());
 		object.setMascaraJavascript	(column.mascara());
+		
+		object.setComponentElementsData				(column.elements());
+		object.setComponentElementsDisplayAttribute	(column.elementsDisplayAttribute());
+		object.setComponentElementsValueAttribute	(column.elementsValueAttribute());
 		
 		if(object.getComponentLabel() != null || object.getComponentLabel().equals(""))
 		{
