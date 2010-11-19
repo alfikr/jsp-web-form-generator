@@ -1,11 +1,11 @@
-package br.inf.carlos.webformgenerator.components;
+package br.inf.carlos.wfg.components;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-import br.inf.carlos.webformgenerator.layout.WebFormLayout;
+import br.inf.carlos.wfg.layout.WebFormLayout;
 
 
 
@@ -35,7 +35,7 @@ public class WebFormFile
 		{
 			List<WebFormComponent> components  = controller.getComponents();
 			
-			WebFormLayout layout = new WebFormLayout();
+			WebFormLayout layout = new WebFormLayout(controllers);
 			
 			WebFormComponent component = components.get(0);
 			

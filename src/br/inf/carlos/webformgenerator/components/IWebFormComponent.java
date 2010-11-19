@@ -1,4 +1,4 @@
-package br.inf.carlos.webformgenerator.components;
+package br.inf.carlos.wfg.components;
 
 /**
  * Interface padrão para todos os componentes HTML a serem renderizados

@@ -1,16 +1,16 @@
-package br.inf.carlos.webformgenerator.components;
+package br.inf.carlos.wfg.components;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
-import br.inf.carlos.webformgenerator.components.impl.WebFormComponentCheckBox;
-import br.inf.carlos.webformgenerator.components.impl.WebFormComponentSelect;
-import br.inf.carlos.webformgenerator.components.impl.WebFormComponentText;
-import br.inf.carlos.webformgenerator.components.impl.WebFormComponentTextArea;
-import br.inf.carlos.webformgenerator.object.WebFormObject;
-import br.inf.carlos.webformgenerator.util.WebFormUtil;
+import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
+import br.inf.carlos.wfg.components.impl.WebFormComponentCheckBox;
+import br.inf.carlos.wfg.components.impl.WebFormComponentSelect;
+import br.inf.carlos.wfg.components.impl.WebFormComponentText;
+import br.inf.carlos.wfg.components.impl.WebFormComponentTextArea;
+import br.inf.carlos.wfg.object.WebFormObject;
+import br.inf.carlos.wfg.util.WebFormUtil;
 
 
 public class WebFormComponentFactory

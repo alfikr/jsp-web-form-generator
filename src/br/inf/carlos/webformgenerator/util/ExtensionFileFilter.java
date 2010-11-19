@@ -1,4 +1,4 @@
-package br.inf.carlos.webformgenerator.util;
+package br.inf.carlos.wfg.util;
 
 import java.io.File;
 import java.io.FileFilter;

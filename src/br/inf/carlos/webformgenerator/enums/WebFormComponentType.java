@@ -1,4 +1,4 @@
-package br.inf.carlos.webformgenerator.enums;
+package br.inf.carlos.wfg.enums;
 
 /**
  * Este ENUM define todos os tipos possíveis de componentes

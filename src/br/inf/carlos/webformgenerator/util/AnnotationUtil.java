@@ -1,12 +1,12 @@
-package br.inf.carlos.webformgenerator.util;
+package br.inf.carlos.wfg.util;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.inf.carlos.webformgenerator.annotations.WebFormBean;
-import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
+import br.inf.carlos.wfg.annotations.WebFormBean;
+import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
 
 public class AnnotationUtil
 {

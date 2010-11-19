@@ -1,7 +1,7 @@
-package br.inf.carlos.webformgenerator.components.impl;
+package br.inf.carlos.wfg.components.impl;
 
-import br.inf.carlos.webformgenerator.components.WebFormComponent;
-import br.inf.carlos.webformgenerator.object.WebFormObject;
+import br.inf.carlos.wfg.components.WebFormComponent;
+import br.inf.carlos.wfg.object.WebFormObject;
 
 /**
  * Esta classe concretiza a geração do componente INPUT Checkbox.
