@@ -20,6 +20,57 @@ import br.inf.carlos.wfg.object.WebFormObject;
  */
 public class WebFormUtil
 {
+	public static String getFormSubmitMethod (List<WebFormControllerComponent> controllers)
+	{
+		String method = "post";
+		
+		for (WebFormControllerComponent controller : controllers)
+		{
+			for (WebFormComponent component : controller.getComponents())
+			{
+				if(component.getObject().getBean().method() != null && !component.getObject().getBean().method().equals(""))
+				{
+					method = component.getObject().getBean().method();
+					break;
+				}
+			}
+		}
+		
+		method = method.toLowerCase();
+		
+		if(!method.equals("get") && !method.equals("post"))
+		{
+			method = "post";
+		}
+		
+		return method;
+	}
+	
+	/**
+	 * Retorna a URL da action do Form HTML mapeado na classe bean.
+	 * 
+	 * @param List controllers
+	 * 
+	 * @return actionURL
+	 */
+	public static String getHTMLFormActionURL (List<WebFormControllerComponent> controllers)
+	{
+		String actionURL = "";
+		
+		for (WebFormControllerComponent controller : controllers)
+		{
+			for (WebFormComponent component : controller.getComponents())
+			{
+				if(component.getObject().getBean().formActionTarget() != null && !component.getObject().getBean().formActionTarget().equals(""))
+				{
+					actionURL = component.getObject().getBean().formActionTarget();
+					break;
+				}
+			}
+		}
+		return actionURL;
+	}
+	
 	/**
 	 * Retorna um ArrayList com todos os componentes Text que contenham uma mascara Javascript.
 	 * 

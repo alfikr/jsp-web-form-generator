@@ -4,7 +4,12 @@ import br.inf.carlos.wfg.annotations.WebFormBean;
 import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
 import br.inf.carlos.wfg.enums.WebFormComponentType;
 
-@WebFormBean(elVarName = "cliente", controllerFolderName = "cliente")
+@WebFormBean(
+	elVarName 				= "cliente", 
+	controllerFolderName 	= "cliente",
+	formActionTarget		= "/clientes/salvar/",
+	method					= "Post"
+)
 public class Cliente
 {
 	@WebFormBeanColumn(
