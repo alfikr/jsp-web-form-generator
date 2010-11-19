@@ -54,7 +54,7 @@ public class WebFormLayout implements IWebFormLayout
 			
 			for (WebFormComponent comp : componentesComMascara)
 			{
-				html += "	$('#" + comp.getObject().getComponentId() + "').mask('" + comp.getObject().getMascaraJavascript() + "');\n";
+				html += "	jQuery('#" + comp.getObject().getComponentId() + "').mask('" + comp.getObject().getMascaraJavascript() + "');\n";
 			}
 			
 			html += "</script>\n";

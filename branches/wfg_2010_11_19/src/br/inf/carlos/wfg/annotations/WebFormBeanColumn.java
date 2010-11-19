@@ -91,6 +91,20 @@ public @interface WebFormBeanColumn
 	public String 					elements()		default "";
 	
 	/**
+	 * Seta qual será o campo alvo dos elements do select. Exemplo: estado.cidades.nomeCidade
+	 * 
+	 * @return
+	 */
+	public String					elementsDisplayAttribute()		default "";
+	
+	/**
+	 * Seta qual será o campo alvo dos elements do select. Exemplo: estado.cidades.idCidade
+	 *  
+	 * @return
+	 */
+	public String					elementsValueAttribute()		default "";
+	
+	/**
 	 * Seta a quantidade de colunas para o componente TextArea.
 	 * 
 	 * @return void

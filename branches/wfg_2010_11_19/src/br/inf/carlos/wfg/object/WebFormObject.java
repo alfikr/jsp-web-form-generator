@@ -32,6 +32,10 @@ public class WebFormObject implements Serializable
 	
 	private String componentElementsData;
 	
+	private String componentElementsDisplayAttribute;
+	
+	private String componentElementsValueAttribute;
+	
 	private int componentSize;
 	
 	private int componentMaxLength;
@@ -175,13 +179,35 @@ public class WebFormObject implements Serializable
 		this.mascaraJavascript = mascaraJavascript;
 	}
 
+	public String getComponentElementsDisplayAttribute() {
+		return componentElementsDisplayAttribute;
+	}
+
+	public void setComponentElementsDisplayAttribute(
+			String componentElementsDisplayAttribute) {
+		this.componentElementsDisplayAttribute = componentElementsDisplayAttribute;
+	}
+
+	public String getComponentElementsValueAttribute() {
+		return componentElementsValueAttribute;
+	}
+
+	public void setComponentElementsValueAttribute(
+			String componentElementsValueAttribute) {
+		this.componentElementsValueAttribute = componentElementsValueAttribute;
+	}
+
 	@Override
 	public String toString() {
 		return "WebFormObject [bean=" + bean + ", beanColumn=" + beanColumn
 				+ ", componentCols=" + componentCols + ", componentCssClass="
 				+ componentCssClass + ", componentElementsData="
-				+ componentElementsData + ", componentId=" + componentId
-				+ ", componentLabel=" + componentLabel
+				+ componentElementsData
+				+ ", componentElementsDisplayAttribute="
+				+ componentElementsDisplayAttribute
+				+ ", componentElementsValueAttribute="
+				+ componentElementsValueAttribute + ", componentId="
+				+ componentId + ", componentLabel=" + componentLabel
 				+ ", componentMaxLength=" + componentMaxLength
 				+ ", componentName=" + componentName + ", componentRows="
 				+ componentRows + ", componentSize=" + componentSize

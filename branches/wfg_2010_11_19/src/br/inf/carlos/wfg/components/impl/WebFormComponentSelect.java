@@ -33,7 +33,7 @@ public class WebFormComponentSelect  extends WebFormComponent
 			{
 				options += "\n";
 				options += "							<c:forEach items='${" + this.getObject().getComponentElementsData() + "}' var='p'>\n";
-				options += "								<option value='${p.id}'>${p}</option>\n";
+				options += "								<option value='${p." + this.getObject().getComponentElementsValueAttribute() + "}'>${p." + this.getObject().getComponentElementsDisplayAttribute() + "}</option>\n";
 				options += "							</c:forEach>\n";
 			}
 			component += options + "						</select>\n";
