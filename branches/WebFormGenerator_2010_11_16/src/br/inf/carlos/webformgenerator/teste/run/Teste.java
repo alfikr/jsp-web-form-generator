@@ -1,8 +1,8 @@
-package br.inf.carlos.webformgenerator.teste.run;
+package br.inf.carlos.wfg.teste.run;
 
 import java.io.IOException;
 
-import br.inf.carlos.webformgenerator.WebFormApplication;
+import br.inf.carlos.wfg.WebFormApplication;
 
 
 public class Teste {
@@ -10,7 +10,7 @@ public class Teste {
 	public static void main(String[] args) {
 		WebFormApplication app = new WebFormApplication(
 			"br.inf.carlos.webformgenerator.teste.beans",
-			"WebContent/",
+			"WebContent/jsp/",
 			"jspx"
 		);
 		

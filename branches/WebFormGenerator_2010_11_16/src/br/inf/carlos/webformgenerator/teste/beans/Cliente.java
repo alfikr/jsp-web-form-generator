@@ -1,8 +1,8 @@
-package br.inf.carlos.webformgenerator.teste.beans;
+package br.inf.carlos.wfg.teste.beans;
 
-import br.inf.carlos.webformgenerator.annotations.WebFormBean;
-import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
-import br.inf.carlos.webformgenerator.enums.WebFormComponentType;
+import br.inf.carlos.wfg.annotations.WebFormBean;
+import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
+import br.inf.carlos.wfg.enums.WebFormComponentType;
 
 @WebFormBean(elVarName = "cliente", controllerFolderName = "cliente")
 public class Cliente
@@ -11,10 +11,10 @@ public class Cliente
 	@WebFormBeanColumn(size=60, maxLength=200)
 	private String nome;
 	
-	@WebFormBeanColumn(size=20, maxLength=20, label="Telefone")
+	@WebFormBeanColumn(size=20, maxLength=20, label="Telefone", mascara="(99)9999-9999")
 	private String telefone;
 	
-	@WebFormBeanColumn(size=20, maxLength=20)
+	@WebFormBeanColumn(size=20, maxLength=20, mascara="(99)9999-9999")
 	private String telefoneTrabalho;
 	
 	@WebFormBeanColumn(size=20, maxLength=20, type=WebFormComponentType.SELECT, elements="cidades")

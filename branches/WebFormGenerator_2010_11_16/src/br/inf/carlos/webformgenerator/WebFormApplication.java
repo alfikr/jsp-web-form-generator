@@ -1,13 +1,13 @@
-package br.inf.carlos.webformgenerator;
+package br.inf.carlos.wfg;
 
 import java.io.IOException;
 import java.util.List;
 
-import br.inf.carlos.webformgenerator.components.WebFormAnnotationMapper;
-import br.inf.carlos.webformgenerator.components.WebFormComponentFactory;
-import br.inf.carlos.webformgenerator.components.WebFormControllerComponent;
-import br.inf.carlos.webformgenerator.components.WebFormFile;
-import br.inf.carlos.webformgenerator.util.WebFormUtil;
+import br.inf.carlos.wfg.components.WebFormAnnotationMapper;
+import br.inf.carlos.wfg.components.WebFormComponentFactory;
+import br.inf.carlos.wfg.components.WebFormControllerComponent;
+import br.inf.carlos.wfg.components.WebFormFile;
+import br.inf.carlos.wfg.util.WebFormUtil;
 
 public class WebFormApplication
 {

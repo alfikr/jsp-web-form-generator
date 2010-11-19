@@ -1,4 +1,4 @@
-package br.inf.carlos.webformgenerator.annotations;
+package br.inf.carlos.wfg.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

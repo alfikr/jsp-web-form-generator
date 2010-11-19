@@ -1,12 +1,12 @@
-package br.inf.carlos.webformgenerator.object;
+package br.inf.carlos.wfg.object;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-import br.inf.carlos.webformgenerator.annotations.WebFormBean;
-import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
-import br.inf.carlos.webformgenerator.enums.WebFormComponentType;
+import br.inf.carlos.wfg.annotations.WebFormBean;
+import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
+import br.inf.carlos.wfg.enums.WebFormComponentType;
 
 /**
  * Classe para abstrair um componente HTML a ser gerado. Os atributos desta
@@ -47,6 +47,8 @@ public class WebFormObject implements Serializable
 	private WebFormBeanColumn beanColumn;
 	
 	private Field field;
+	
+	private String mascaraJavascript;
 	
 	public WebFormObject ()
 	{
@@ -165,6 +167,14 @@ public class WebFormObject implements Serializable
 		this.field = field;
 	}
 
+	public String getMascaraJavascript() {
+		return mascaraJavascript;
+	}
+
+	public void setMascaraJavascript(String mascaraJavascript) {
+		this.mascaraJavascript = mascaraJavascript;
+	}
+
 	@Override
 	public String toString() {
 		return "WebFormObject [bean=" + bean + ", beanColumn=" + beanColumn
@@ -176,6 +186,7 @@ public class WebFormObject implements Serializable
 				+ ", componentName=" + componentName + ", componentRows="
 				+ componentRows + ", componentSize=" + componentSize
 				+ ", componentType=" + componentType + ", componentValue="
-				+ Arrays.toString(componentValue) + ", field=" + field + "]";
+				+ Arrays.toString(componentValue) + ", field=" + field
+				+ ", mascaraJavascript=" + mascaraJavascript + "]";
 	}
 }

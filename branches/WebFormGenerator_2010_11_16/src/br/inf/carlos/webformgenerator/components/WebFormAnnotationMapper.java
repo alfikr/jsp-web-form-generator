@@ -1,11 +1,11 @@
-package br.inf.carlos.webformgenerator.components;
+package br.inf.carlos.wfg.components;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.inf.carlos.webformgenerator.util.ExtensionFileFilter;
-import br.inf.carlos.webformgenerator.util.WebFormUtil;
+import br.inf.carlos.wfg.util.ExtensionFileFilter;
+import br.inf.carlos.wfg.util.WebFormUtil;
 
 
 public class WebFormAnnotationMapper

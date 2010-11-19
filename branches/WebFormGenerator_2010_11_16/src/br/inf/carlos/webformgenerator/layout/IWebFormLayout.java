@@ -1,8 +1,8 @@
-package br.inf.carlos.webformgenerator.layout;
+package br.inf.carlos.wfg.layout;
 
 import java.util.List;
 
-import br.inf.carlos.webformgenerator.components.WebFormComponent;
+import br.inf.carlos.wfg.components.WebFormComponent;
 
 public interface IWebFormLayout
 {

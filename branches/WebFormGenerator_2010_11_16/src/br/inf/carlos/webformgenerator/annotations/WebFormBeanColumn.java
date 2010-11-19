@@ -1,11 +1,11 @@
-package br.inf.carlos.webformgenerator.annotations;
+package br.inf.carlos.wfg.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import br.inf.carlos.webformgenerator.enums.WebFormComponentType;
+import br.inf.carlos.wfg.enums.WebFormComponentType;
 
 /**
  * Esta Annotation class define todos os atributos mapeáveis para
@@ -103,4 +103,6 @@ public @interface WebFormBeanColumn
 	 * @return void
 	 */
 	public int						rows () 		default 10;
+	
+	public String					mascara()		default "";
 }

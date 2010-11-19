@@ -1,7 +1,7 @@
-package br.inf.carlos.webformgenerator.components.impl;
+package br.inf.carlos.wfg.components.impl;
 
-import br.inf.carlos.webformgenerator.components.WebFormComponent;
-import br.inf.carlos.webformgenerator.object.WebFormObject;
+import br.inf.carlos.wfg.components.WebFormComponent;
+import br.inf.carlos.wfg.object.WebFormObject;
 
 /**
  * Esta classe concretiza a geração do componente INPUT TEXT.
@@ -21,16 +21,10 @@ public class WebFormComponentText  extends WebFormComponent
 		String html = "";
 		String component = "";
 		
-		switch (this.getObject().getComponentType())
-		{
-			default:
-			case TEXT:
-				component += "							<input type='text' class='" + this.getObject().getComponentCssClass() + "' ";
-				component += " size='" + this.getObject().getComponentSize() + "' ";
-				component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' ";
-				component += " maxlength='" + this.getObject().getComponentMaxLength() + "' />\n";
-			break;
-		}
+		component += "							<input type='text' class='" + this.getObject().getComponentCssClass() + "' ";
+		component += " size='" + this.getObject().getComponentSize() + "' ";
+		component += " id='" + this.getObject().getComponentId() + "' name='" + this.getObject().getComponentName() + "' ";
+		component += " maxlength='" + this.getObject().getComponentMaxLength() + "' />\n";
 		
 		html += "				 <label>\n";
 		html += "							" + this.getComponentLabel() + ": \n";

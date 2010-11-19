@@ -1,7 +1,7 @@
-package br.inf.carlos.webformgenerator.components;
+package br.inf.carlos.wfg.components;
 
-import br.inf.carlos.webformgenerator.object.WebFormObject;
-import br.inf.carlos.webformgenerator.util.WebFormUtil;
+import br.inf.carlos.wfg.object.WebFormObject;
+import br.inf.carlos.wfg.util.WebFormUtil;
 
 
 /**
@@ -21,7 +21,7 @@ public abstract class WebFormComponent implements IWebFormComponent
 	public WebFormObject getObject() {
 		return object;
 	}
-
+	
 	@Override
 	public String renderComponent()
 	{

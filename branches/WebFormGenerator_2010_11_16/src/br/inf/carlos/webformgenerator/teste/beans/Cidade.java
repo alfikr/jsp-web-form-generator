@@ -1,7 +1,7 @@
-package br.inf.carlos.webformgenerator.teste.beans;
+package br.inf.carlos.wfg.teste.beans;
 
-import br.inf.carlos.webformgenerator.annotations.WebFormBean;
-import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
+import br.inf.carlos.wfg.annotations.WebFormBean;
+import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
 
 @WebFormBean(elVarName = "cidade", controllerFolderName = "cidade")
 public class Cidade

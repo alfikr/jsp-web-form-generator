@@ -1,12 +1,17 @@
-package br.inf.carlos.webformgenerator.util;
+package br.inf.carlos.wfg.util;
 
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
-import br.inf.carlos.webformgenerator.annotations.WebFormBean;
-import br.inf.carlos.webformgenerator.annotations.WebFormBeanColumn;
-import br.inf.carlos.webformgenerator.object.WebFormObject;
+import br.inf.carlos.wfg.annotations.WebFormBean;
+import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
+import br.inf.carlos.wfg.components.WebFormComponent;
+import br.inf.carlos.wfg.components.WebFormControllerComponent;
+import br.inf.carlos.wfg.components.impl.WebFormComponentText;
+import br.inf.carlos.wfg.object.WebFormObject;
 
 /**
  * Esta classe contém métodos utilitários para a aplicação.
@@ -15,6 +20,52 @@ import br.inf.carlos.webformgenerator.object.WebFormObject;
  */
 public class WebFormUtil
 {
+	/**
+	 * Retorna um ArrayList com todos os componentes Text que contenham uma mascara Javascript.
+	 * 
+	 * @param List<WebFormControllerComponent> controllers
+	 * 
+	 * @return
+	 */
+	public static List<WebFormComponent> getComponentsWithJavascriptMask (List<WebFormControllerComponent> controllers)
+	{
+		List<WebFormComponent> components = new ArrayList<WebFormComponent>();
+		
+		for (WebFormControllerComponent controller : controllers)
+		{
+			for (WebFormComponent component : controller.getComponents())
+			{
+				if(component instanceof WebFormComponentText)
+				{
+					if(component.getObject().getMascaraJavascript() != null && !component.getObject().getMascaraJavascript().equals(""))
+					{
+						components.add(component);
+					}
+				}
+			}
+		}
+		
+		return components;
+	}
+	
+	public static boolean hasFieldWithJavascriptMask (List<WebFormControllerComponent> controllers)
+	{
+		boolean has = false;
+		for (WebFormControllerComponent controller : controllers)
+		{
+			for (WebFormComponent component : controller.getComponents())
+			{
+				if(component.getObject().getMascaraJavascript() != null && !component.getObject().getMascaraJavascript().equals(""))
+				{
+					has = true;
+					break;
+				}
+			}
+		}
+		
+		return has;
+	}
+	
 	public static String capitalize (String s)
 	{
 		return s.replaceFirst(s.substring(0, 1), s.substring(0, 1).toUpperCase());
@@ -133,6 +184,7 @@ public class WebFormUtil
 		
 		object.setComponentRows		(column.rows());
 		object.setComponentElementsData(column.elements());
+		object.setMascaraJavascript	(column.mascara());
 		
 		if(object.getComponentLabel() != null || object.getComponentLabel().equals(""))
 		{
