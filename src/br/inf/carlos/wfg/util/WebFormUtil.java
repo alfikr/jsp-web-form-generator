@@ -66,8 +66,16 @@ public class WebFormUtil
 		return has;
 	}
 	
+	/**
+	 * Deixa a primeira letra de uma string em maiusculo.
+	 * 
+	 * @param s
+	 * @return
+	 */
 	public static String capitalize (String s)
 	{
+		s = s.toLowerCase();
+		
 		return s.replaceFirst(s.substring(0, 1), s.substring(0, 1).toUpperCase());
 	}
 	
@@ -189,7 +197,7 @@ public class WebFormUtil
 		object.setComponentElementsDisplayAttribute	(column.elementsDisplayAttribute());
 		object.setComponentElementsValueAttribute	(column.elementsValueAttribute());
 		
-		if(object.getComponentLabel() != null || object.getComponentLabel().equals(""))
+		if(object.getComponentLabel() == null || object.getComponentLabel().equals(""))
 		{
 			object.setComponentLabel(object.getField().getName());
 		}
