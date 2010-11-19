@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
 import br.inf.carlos.wfg.components.impl.WebFormComponentCheckBox;
+import br.inf.carlos.wfg.components.impl.WebFormComponentRadioBox;
 import br.inf.carlos.wfg.components.impl.WebFormComponentSelect;
 import br.inf.carlos.wfg.components.impl.WebFormComponentText;
 import br.inf.carlos.wfg.components.impl.WebFormComponentTextArea;
@@ -92,6 +93,9 @@ public class WebFormComponentFactory
 			break;
 			case CHECKBOX:
 				component = new WebFormComponentCheckBox(object);
+			break;
+			case RADIOBOX:
+				component = new WebFormComponentRadioBox(object);
 			break;
 		}
 		
