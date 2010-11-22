@@ -1,14 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * PanelPackageSelector.java
- *
- * Created on 22/11/2010, 08:41:37
- */
-
 package br.inf.carlos.wfg.gui.forms;
 
 import java.awt.event.ActionEvent;
@@ -36,9 +25,13 @@ public class PanelPackageSelector extends javax.swing.JPanel
 	 */
 	private ObjectProperties objectProperties;
 	
-	public PanelPackageSelector(ObjectProperties objectProperties)
+	private FrameMenuInicial frame;
+	
+	public PanelPackageSelector(ObjectProperties objectProperties, FrameMenuInicial frame)
 	{
-		this.objectProperties = objectProperties;
+		this.objectProperties 	= objectProperties;
+		this.frame				= frame;
+		
         initComponents();
     }
 
@@ -138,9 +131,8 @@ public class PanelPackageSelector extends javax.swing.JPanel
 				}
 			}
     		
-    		
     		this.getObjectProperties().setClassesSelecionadas(classes);
-    		System.out.println(this.getObjectProperties().getClassesSelecionadas().size());
+    		this.getFrameMenuInicial().setObjectProperties(this.getObjectProperties());
     	}
     	else
     	{
@@ -156,6 +148,13 @@ public class PanelPackageSelector extends javax.swing.JPanel
 		this.objectProperties = objectProperties;
 	}
 
+	public FrameMenuInicial getFrameMenuInicial() {
+		return frame;
+	}
+
+	public void setFrameMenuInicial(FrameMenuInicial frame) {
+		this.frame = frame;
+	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

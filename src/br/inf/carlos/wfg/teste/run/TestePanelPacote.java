@@ -10,7 +10,7 @@ public class TestePanelPacote {
 		
 		JFrame frame = new JFrame();
 		
-		JPanel panel = new PanelPackageSelector(null);
+		JPanel panel = new PanelPackageSelector(null, null);
 		
 		frame.add(panel);
 		frame.setVisible(true);
