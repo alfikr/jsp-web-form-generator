@@ -1,20 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * FrameMenuInicial.java
- *
- * Created on 22/11/2010, 08:48:37
- */
-
 package br.inf.carlos.wfg.gui.forms;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
@@ -37,6 +27,9 @@ public class FrameMenuInicial extends JFrame
 
 	private void initComponents() {
 
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
 		jMenuBar1 = new javax.swing.JMenuBar();
 		jMenu1 = new javax.swing.JMenu();
 		jmiDiretorioPacotes = new javax.swing.JMenuItem();
@@ -53,6 +46,12 @@ public class FrameMenuInicial extends JFrame
 		jmiDiretorioPacotes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				jmiDiretorioPacotesActionPerformed(evt);
+			}
+		});
+		
+		jMenuItem2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				jmiDefinicaoComponentesAction(evt);
 			}
 		});
 		
@@ -80,11 +79,31 @@ public class FrameMenuInicial extends JFrame
 
 		pack();
 	}
+	
+	private void jmiDefinicaoComponentesAction(ActionEvent evt)
+	{
+		if(this.objectProperties.getClassesSelecionadas().size() > 0)
+		{
+			JFrame frame = new JFrame();
+			JPanel panelPackage = new PanelDefinicaoComponente(this.objectProperties, this);
+			
+			frame.add(panelPackage);
+			frame.setVisible(true);
+			frame.pack();
+			frame.setResizable(false);
+			frame.setTitle("Configuração dos Componentes HTML");
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(this, "Primeiro selecione as classes a serem mapeadas!");
+		}
+	}
+
 
 	private void jmiDiretorioPacotesActionPerformed(ActionEvent evt)
 	{
 		JFrame frame = new JFrame();
-		JPanel panelPackage = new PanelPackageSelector(this.objectProperties);
+		JPanel panelPackage = new PanelPackageSelector(this.objectProperties, this);
 		
 		frame.add(panelPackage);
 		frame.setVisible(true);
@@ -103,6 +122,14 @@ public class FrameMenuInicial extends JFrame
 				new FrameMenuInicial().setVisible(true);
 			}
 		});
+	}
+
+	public ObjectProperties getObjectProperties() {
+		return objectProperties;
+	}
+
+	public void setObjectProperties(ObjectProperties objectProperties) {
+		this.objectProperties = objectProperties;
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

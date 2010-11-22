@@ -1,5 +1,6 @@
 package br.inf.carlos.wfg.gui.object;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,11 @@ public class ObjectProperties
 	private String diretorioClasses;
 	@SuppressWarnings("unchecked")
 	private List<Class> classesSelecionadas;
+	
+	public ObjectProperties()
+	{
+		this.classesSelecionadas = new ArrayList<Class>();
+	}
 
 	public String getDiretorioClasses() {
 		return this.diretorioClasses;
