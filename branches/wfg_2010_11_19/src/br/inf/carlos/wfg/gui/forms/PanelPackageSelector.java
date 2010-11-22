@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import br.inf.carlos.wfg.components.WebFormAnnotationMapper;
+import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.models.ListModelClasses;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.util.WebFormUtil;
@@ -27,11 +29,13 @@ public class PanelPackageSelector extends javax.swing.JPanel
 	
 	private FrameMenuInicial frame;
 	
-	public PanelPackageSelector(ObjectProperties objectProperties, FrameMenuInicial frame)
+	private JFrame			parent;
+	
+	public PanelPackageSelector(ObjectProperties objectProperties, FrameMenuInicial frame, JFrame parent)
 	{
 		this.objectProperties 	= objectProperties;
 		this.frame				= frame;
-		
+		this.parent				= parent;
         initComponents();
     }
 
@@ -123,7 +127,6 @@ public class PanelPackageSelector extends javax.swing.JPanel
     		
     		for (Object object : objects)
     		{
-    			System.out.println(object);
 				try {
 					Class c = Class.forName(this.packageDirectory.getText() + "." + (String) object);
 					classes.add(c);
@@ -135,6 +138,10 @@ public class PanelPackageSelector extends javax.swing.JPanel
     		this.getObjectProperties().setClassesSelecionadas(classes);
     		this.getFrameMenuInicial().setObjectProperties(this.getObjectProperties());
     		JOptionPane.showMessageDialog(this, "Classes registradas com sucesso!");
+    		
+    		this.getParentFrame().getContentPane().removeAll();
+    		this.getParentFrame().removeAll();
+    		this.getParentFrame().setVisible(false);
     	}
     	else
     	{
@@ -156,6 +163,14 @@ public class PanelPackageSelector extends javax.swing.JPanel
 
 	public void setFrameMenuInicial(FrameMenuInicial frame) {
 		this.frame = frame;
+	}
+
+	public JFrame getParentFrame() {
+		return parent;
+	}
+
+	public void setParentFrame(JFrame parent) {
+		this.parent = parent;
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
