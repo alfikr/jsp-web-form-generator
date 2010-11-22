@@ -123,8 +123,9 @@ public class PanelPackageSelector extends javax.swing.JPanel
     		
     		for (Object object : objects)
     		{
+    			System.out.println(object);
 				try {
-					Class c = Class.forName((String) object);
+					Class c = Class.forName(this.packageDirectory.getText() + "." + (String) object);
 					classes.add(c);
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
@@ -133,6 +134,7 @@ public class PanelPackageSelector extends javax.swing.JPanel
     		
     		this.getObjectProperties().setClassesSelecionadas(classes);
     		this.getFrameMenuInicial().setObjectProperties(this.getObjectProperties());
+    		JOptionPane.showMessageDialog(this, "Classes registradas com sucesso!");
     	}
     	else
     	{

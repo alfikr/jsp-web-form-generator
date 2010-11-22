@@ -26,7 +26,7 @@ public class ListModelClasses extends AbstractListModel
 		
 		for (Class c : classes)
 		{
-			this.elementos.add(c.getName());
+			this.elementos.add(c.getSimpleName());
 		}
 	}
 	
