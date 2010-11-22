@@ -4,49 +4,36 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 
-/**
- * Modelo padrão para o JPanel que irá apresentar os atributos da classe que será passada
- * por parâmetro.
- * 
- * @author Carlos A. Junior
- * 
- * @see JPanel
- */
-public class PanelModeloConfiguracaoPadrao extends JPanel
+public class PanelModeloAbaClasses extends JPanel
 {
 	private static final long serialVersionUID = 1L;
-	
+
 	private ObjectProperties objectProperties;
 	
-	private FrameMenuInicial frameMenuInicial;
+	private javax.swing.JButton jbSalvar;
+    private javax.swing.JTabbedPane jtpBase;
 	
-	private JButton jButton1;
-    private JTabbedPane jTabbedPane2;
-    private JTabbedPane jTabbedPane3;
-    private JTabbedPane jtpBase;
-
-	public PanelModeloConfiguracaoPadrao(ObjectProperties objectProperties, FrameMenuInicial frameMenuInicial)
+	public PanelModeloAbaClasses (ObjectProperties objectProperties)
 	{
 		this.objectProperties = objectProperties;
-		this.frameMenuInicial = frameMenuInicial;
 		
 		this.initComponents();
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void initComponents()
 	{
-        jtpBase = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jButton1 = new javax.swing.JButton();
+        jtpBase 		= new JTabbedPane();
+        jbSalvar 		= new JButton();
 
-        jtpBase.addTab("tab2", jTabbedPane3);
-        jtpBase.addTab("tab1", jTabbedPane2);
-
-        jButton1.setText("Salvar Configurações");
+        for (Class c : this.getObjectProperties().getClassesSelecionadas()) 
+        {
+			jtpBase.addTab(c.getSimpleName(), new JTabbedPane());
+		}
+        
+        jbSalvar.setText("Salvar Configurações");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -55,7 +42,7 @@ public class PanelModeloConfiguracaoPadrao extends JPanel
             .addComponent(jtpBase, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(408, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jbSalvar)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -63,12 +50,14 @@ public class PanelModeloConfiguracaoPadrao extends JPanel
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jtpBase, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jbSalvar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }
+	
 
-	public ObjectProperties getObjectProperties() {
+
+    public ObjectProperties getObjectProperties() {
 		return objectProperties;
 	}
 
@@ -76,11 +65,8 @@ public class PanelModeloConfiguracaoPadrao extends JPanel
 		this.objectProperties = objectProperties;
 	}
 
-	public FrameMenuInicial getFrameMenuInicial() {
-		return frameMenuInicial;
+	public javax.swing.JTabbedPane getJtpBase() {
+		return jtpBase;
 	}
 
-	public void setFrameMenuInicial(FrameMenuInicial frameMenuInicial) {
-		this.frameMenuInicial = frameMenuInicial;
-	}
 }

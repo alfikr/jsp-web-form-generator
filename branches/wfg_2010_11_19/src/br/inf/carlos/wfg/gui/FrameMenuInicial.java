@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import br.inf.carlos.wfg.gui.forms.PanelDefinicaoComponente;
+import br.inf.carlos.wfg.gui.forms.PanelModeloAbaClasses;
 import br.inf.carlos.wfg.gui.forms.PanelPackageSelector;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 
@@ -89,9 +89,9 @@ public class FrameMenuInicial extends JFrame
 		if(this.objectProperties.getClassesSelecionadas().size() > 0)
 		{
 			JFrame frame = new JFrame();
-			JPanel panelPackage = new PanelDefinicaoComponente(this.objectProperties, this, frame);
+			JPanel abas = new PanelModeloAbaClasses(this.objectProperties);
 			
-			frame.add(panelPackage);
+			frame.add(abas);
 			frame.setVisible(true);
 			frame.pack();
 			frame.setResizable(false);
@@ -100,6 +100,7 @@ public class FrameMenuInicial extends JFrame
 		else
 		{
 			JOptionPane.showMessageDialog(this, "Primeiro selecione as classes a serem mapeadas!");
+			this.jmiDiretorioPacotesActionPerformed(evt);
 		}
 	}
 
