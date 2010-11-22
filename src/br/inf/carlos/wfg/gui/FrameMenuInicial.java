@@ -1,12 +1,15 @@
-package br.inf.carlos.wfg.gui.forms;
+package br.inf.carlos.wfg.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import br.inf.carlos.wfg.gui.forms.PanelDefinicaoComponente;
+import br.inf.carlos.wfg.gui.forms.PanelPackageSelector;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 
 /**
@@ -65,11 +68,12 @@ public class FrameMenuInicial extends JFrame
 		jMenu2.setText("Edit");
 		jMenuBar1.add(jMenu2);
 
-		setJMenuBar(jMenuBar1);
+		this.setJMenuBar(jMenuBar1);
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
-		getContentPane().setLayout(layout);
+		GroupLayout layout = new javax.swing.GroupLayout( this.getContentPane());
+		
+		this.getContentPane().setLayout(layout);
+		
 		layout.setHorizontalGroup(layout.createParallelGroup(
 				javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 522,
 				Short.MAX_VALUE));
@@ -85,7 +89,7 @@ public class FrameMenuInicial extends JFrame
 		if(this.objectProperties.getClassesSelecionadas().size() > 0)
 		{
 			JFrame frame = new JFrame();
-			JPanel panelPackage = new PanelDefinicaoComponente(this.objectProperties, this);
+			JPanel panelPackage = new PanelDefinicaoComponente(this.objectProperties, this, frame);
 			
 			frame.add(panelPackage);
 			frame.setVisible(true);
@@ -103,7 +107,7 @@ public class FrameMenuInicial extends JFrame
 	private void jmiDiretorioPacotesActionPerformed(ActionEvent evt)
 	{
 		JFrame frame = new JFrame();
-		JPanel panelPackage = new PanelPackageSelector(this.objectProperties, this);
+		JPanel panelPackage = new PanelPackageSelector(this.objectProperties, this, frame);
 		
 		frame.add(panelPackage);
 		frame.setVisible(true);

@@ -1,7 +1,9 @@
 package br.inf.carlos.wfg.gui.forms;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.actions.DefinicaoListSelectListener;
 import br.inf.carlos.wfg.gui.models.ListModelClasses;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
@@ -21,16 +23,19 @@ public class PanelDefinicaoComponente extends JPanel
 	
 	private FrameMenuInicial frameMenuInicial;
 	
+	private JFrame parent;
+	
 	private javax.swing.JButton jButton1;
     private javax.swing.JList jlClasses;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jpPainelComponentes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
 
-	public PanelDefinicaoComponente(ObjectProperties objectProperties, FrameMenuInicial frameMenuInicial)
+	public PanelDefinicaoComponente(ObjectProperties objectProperties, FrameMenuInicial frameMenuInicial, JFrame parent)
 	{
 		this.objectProperties = objectProperties;
 		this.frameMenuInicial = frameMenuInicial;
+		this.parent			  = parent;
 		
         initComponents();
     }
@@ -41,7 +46,7 @@ public class PanelDefinicaoComponente extends JPanel
         jScrollPane1 = new javax.swing.JScrollPane();
         jlClasses = new javax.swing.JList();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanel1 = new javax.swing.JPanel();
+        jpPainelComponentes = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,25 +62,19 @@ public class PanelDefinicaoComponente extends JPanel
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 10, 310));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 416, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
-        );
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 420, 310));
+        jpPainelComponentes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jpPainelComponentes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        
+        add(jpPainelComponentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 420, 310));
 
         jButton1.setText("Salvar");
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 70, -1));
         
-        DefinicaoListSelectListener listener = new DefinicaoListSelectListener(this.getObjectProperties(), this.getFrameMenuInicial());
+        DefinicaoListSelectListener listener = new DefinicaoListSelectListener(
+        	this.getObjectProperties(), 
+        	this.getFrameMenuInicial(), 
+        	this.jlClasses
+        );
         
         jlClasses.addListSelectionListener(listener);
     }

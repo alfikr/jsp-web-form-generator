@@ -1,50 +1,45 @@
-package br.inf.carlos.wfg.gui.actions;
+package br.inf.carlos.wfg.gui.forms;
 
-import javax.swing.JList;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.JPanel;
 
 import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 
-public class DefinicaoListSelectListener implements ListSelectionListener
+/**
+ * Modelo padrão para o JPanel que irá apresentar os atributos da classe que será passada
+ * por parâmetro.
+ * 
+ * @author Carlos A. Junior
+ * 
+ * @see JPanel
+ */
+public class PanelModeloConfiguracaoPadrao extends JPanel
 {
-	/**
-	 * Referencia para o objeto global.
-	 */
+	private static final long serialVersionUID = 1L;
+	
 	private ObjectProperties objectProperties;
 	
 	private FrameMenuInicial frameMenuInicial;
-	
-	private JList lista;
-	
-	public DefinicaoListSelectListener (ObjectProperties objectProperties, FrameMenuInicial frameMenuInicial, JList lista)
+
+	public PanelModeloConfiguracaoPadrao(ObjectProperties objectProperties, FrameMenuInicial frameMenuInicial)
 	{
 		this.objectProperties = objectProperties;
 		this.frameMenuInicial = frameMenuInicial;
-		this.lista			  = lista;
 	}
-	@Override
-	public void valueChanged(ListSelectionEvent e)
-	{
-		System.out.println(this.getLista().getSelectedValue());
-	}
+
 	public ObjectProperties getObjectProperties() {
 		return objectProperties;
 	}
+
 	public void setObjectProperties(ObjectProperties objectProperties) {
 		this.objectProperties = objectProperties;
 	}
+
 	public FrameMenuInicial getFrameMenuInicial() {
 		return frameMenuInicial;
 	}
+
 	public void setFrameMenuInicial(FrameMenuInicial frameMenuInicial) {
 		this.frameMenuInicial = frameMenuInicial;
-	}
-	public JList getLista() {
-		return lista;
-	}
-	public void setLista(JList lista) {
-		this.lista = lista;
 	}
 }
