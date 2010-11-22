@@ -2,6 +2,7 @@ package br.inf.carlos.wfg.gui.forms;
 
 import javax.swing.JPanel;
 
+import br.inf.carlos.wfg.gui.actions.DefinicaoListSelectListener;
 import br.inf.carlos.wfg.gui.models.ListModelClasses;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 
@@ -73,6 +74,10 @@ public class PanelDefinicaoComponente extends JPanel
 
         jButton1.setText("Salvar");
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 70, -1));
+        
+        DefinicaoListSelectListener listener = new DefinicaoListSelectListener(this.getObjectProperties(), this.getFrameMenuInicial());
+        
+        jlClasses.addListSelectionListener(listener);
     }
 
 	public ObjectProperties getObjectProperties() {
