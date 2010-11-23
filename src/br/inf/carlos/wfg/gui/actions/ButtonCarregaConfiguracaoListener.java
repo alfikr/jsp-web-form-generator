@@ -6,12 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.object.ClassObject;
-import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.gui.panels.PanelClassFieldConfigurator;
 import br.inf.carlos.wfg.gui.panels.PanelClassSelector;
-import br.inf.carlos.wfg.teste.beans.Cliente;
 
 /**
  * Gerencia o evento do botão do painel de seleção de classes para a JPanel
