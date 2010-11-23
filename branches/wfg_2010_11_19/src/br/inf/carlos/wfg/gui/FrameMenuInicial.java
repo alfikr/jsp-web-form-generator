@@ -1,5 +1,6 @@
 package br.inf.carlos.wfg.gui;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 import br.inf.carlos.wfg.gui.forms.PanelPackageSelector;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.gui.panels.PanelClassFieldConfigurator;
+import br.inf.carlos.wfg.gui.panels.PanelClassSelector;
 import br.inf.carlos.wfg.teste.beans.Cliente;
 
 /**
@@ -90,14 +92,15 @@ public class FrameMenuInicial extends JFrame
 		if(this.objectProperties.getClassesSelecionadas().size() > 0)
 		{
 			JFrame frame = new JFrame();
-			JPanel abas = new PanelClassFieldConfigurator(this.objectProperties, this, Cliente.class);
+			JPanel abas = new PanelClassSelector(this.objectProperties);
 			
 			frame.add(abas);
 			frame.setVisible(true);
 			frame.pack();
 			frame.setResizable(false);
 			frame.setLocation(200, 200);
-			frame.setTitle("Configuração dos Componentes HTML");
+			frame.setSize(new Dimension(600, 200));
+			frame.setTitle("Seleção de Classes");
 		}
 		else
 		{
@@ -120,11 +123,8 @@ public class FrameMenuInicial extends JFrame
 		frame.setTitle("Seletor de Pacotes");
 	}
 
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
-	public static void main(String args[]) {
+	public static void main(String args[])
+	{
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				FrameMenuInicial m =  new FrameMenuInicial();

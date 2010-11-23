@@ -27,6 +27,6 @@ public class FieldObject
 	@Override
 	public String toString()
 	{
-		return this.displayName;
+		return this.displayName + " - " + this.field.getType().getSimpleName();
 	}
 }
