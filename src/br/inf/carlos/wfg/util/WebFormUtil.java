@@ -278,6 +278,9 @@ public class WebFormUtil
 		
 		Field[] fls = clazz.getDeclaredFields();
 		
+		FieldObject os = new FieldObject(null, "-Selecione um Atributo-");
+		fields.add(os);
+		
 		for (Field field : fls)
 		{
 			FieldObject o = new FieldObject(field, field.getName());
