@@ -1,12 +1,17 @@
 package br.inf.carlos.wfg.gui.forms;
 
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
+
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 
-public class PanelModeloAbaClasses extends JPanel
+public class PanelObjectDefinition extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 
@@ -15,7 +20,7 @@ public class PanelModeloAbaClasses extends JPanel
 	private javax.swing.JButton jbSalvar;
     private javax.swing.JTabbedPane jtpBase;
 	
-	public PanelModeloAbaClasses (ObjectProperties objectProperties)
+	public PanelObjectDefinition (ObjectProperties objectProperties)
 	{
 		this.objectProperties = objectProperties;
 		
@@ -30,13 +35,23 @@ public class PanelModeloAbaClasses extends JPanel
 
         for (Class c : this.getObjectProperties().getClassesSelecionadas()) 
         {
-			jtpBase.addTab(c.getSimpleName(), new JTabbedPane());
+        	JTabbedPane aba 	= new JTabbedPane();
+        	JComponent panel 	= new JPanel();
+        	
+        	panel.setLayout	(new AbsoluteLayout());
+        	
+        	panel.add(new JButton("Meu Button para a classe: " + c.getSimpleName()), new AbsoluteConstraints(20, 20, -1, -1));
+        	
+        	aba.add			(panel);
+			jtpBase.addTab	(c.getSimpleName(), aba);
 		}
         
         jbSalvar.setText("Salvar Configurações");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
+        
         this.setLayout(layout);
+        
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jtpBase, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)

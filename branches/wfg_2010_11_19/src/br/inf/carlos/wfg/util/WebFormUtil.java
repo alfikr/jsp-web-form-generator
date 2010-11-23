@@ -11,6 +11,7 @@ import br.inf.carlos.wfg.annotations.WebFormBeanColumn;
 import br.inf.carlos.wfg.components.WebFormComponent;
 import br.inf.carlos.wfg.components.WebFormControllerComponent;
 import br.inf.carlos.wfg.components.impl.WebFormComponentText;
+import br.inf.carlos.wfg.gui.object.FieldObject;
 import br.inf.carlos.wfg.object.WebFormObject;
 
 /**
@@ -268,5 +269,21 @@ public class WebFormUtil
 		}
 		
 		return object;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static List<FieldObject> getClassFields (Class clazz)
+	{
+		List<FieldObject> fields = new ArrayList<FieldObject>();
+		
+		Field[] fls = clazz.getDeclaredFields();
+		
+		for (Field field : fls)
+		{
+			FieldObject o = new FieldObject(field, field.getName());
+			fields.add(o);
+		}
+		
+		return fields;
 	}
 }
