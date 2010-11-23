@@ -8,9 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import br.inf.carlos.wfg.gui.forms.PanelModeloAbaClasses;
 import br.inf.carlos.wfg.gui.forms.PanelPackageSelector;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
+import br.inf.carlos.wfg.gui.panels.PanelClassFieldConfigurator;
+import br.inf.carlos.wfg.teste.beans.Cliente;
 
 /**
  * 
@@ -89,12 +90,13 @@ public class FrameMenuInicial extends JFrame
 		if(this.objectProperties.getClassesSelecionadas().size() > 0)
 		{
 			JFrame frame = new JFrame();
-			JPanel abas = new PanelModeloAbaClasses(this.objectProperties);
+			JPanel abas = new PanelClassFieldConfigurator(this.objectProperties, this, Cliente.class);
 			
 			frame.add(abas);
 			frame.setVisible(true);
 			frame.pack();
 			frame.setResizable(false);
+			frame.setLocation(200, 200);
 			frame.setTitle("Configuração dos Componentes HTML");
 		}
 		else
@@ -113,6 +115,7 @@ public class FrameMenuInicial extends JFrame
 		frame.add(panelPackage);
 		frame.setVisible(true);
 		frame.pack();
+		frame.setLocation(300, 300);
 		frame.setResizable(false);
 		frame.setTitle("Seletor de Pacotes");
 	}
@@ -124,7 +127,10 @@ public class FrameMenuInicial extends JFrame
 	public static void main(String args[]) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new FrameMenuInicial().setVisible(true);
+				FrameMenuInicial m =  new FrameMenuInicial();
+				
+				m.setVisible(true);
+				m.setLocation(300, 300);
 			}
 		});
 	}
