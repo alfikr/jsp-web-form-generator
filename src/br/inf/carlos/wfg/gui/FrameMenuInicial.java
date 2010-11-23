@@ -6,14 +6,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import br.inf.carlos.wfg.gui.forms.PanelPackageSelector;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
-import br.inf.carlos.wfg.gui.panels.PanelClassFieldConfigurator;
 import br.inf.carlos.wfg.gui.panels.PanelClassSelector;
-import br.inf.carlos.wfg.teste.beans.Cliente;
 
 /**
  * 
@@ -104,7 +101,7 @@ public class FrameMenuInicial extends JFrame
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(this, "Primeiro selecione as classes a serem mapeadas!");
+			//JOptionPane.showMessageDialog(this, "Primeiro selecione as classes a serem mapeadas!");
 			this.jmiDiretorioPacotesActionPerformed(evt);
 		}
 	}
