@@ -1,6 +1,8 @@
 package br.inf.carlos.wfg.gui.forms;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,6 +105,33 @@ public class PanelPackageSelector extends JPanel
         });
         
         add(jbSalvar, new AbsoluteConstraints(420, 330, -1, -1));
+        
+        packageDirectory.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				// TODO Auto-generated method stub
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent evt) {
+				// TODO Auto-generated method stub
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent evt) {
+				// TODO Auto-generated method stub
+				componentMascaraJavascriptKeyPressed(evt);
+			}
+		});
+    }
+    
+    private void componentMascaraJavascriptKeyPressed(KeyEvent evt)
+    {
+    	if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+    	{
+    		this.jbCarregarClassesActionPerformed(null);
+    	}
     }
     
     @SuppressWarnings("unchecked")
@@ -120,6 +149,9 @@ public class PanelPackageSelector extends JPanel
     			ListModelClasses padrao = new ListModelClasses(classes);
     			
     			jlClasses.setModel(padrao);
+    			jlClasses.setFocusable(true);
+    			jlClasses.setSelectionInterval(0, jlClasses.getModel().getSize() -1);
+    			jlClasses.requestFocus();
     		}
     		else
     		{
