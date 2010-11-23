@@ -15,4 +15,5 @@ public interface IPanelHTMLComponentConfigurator
 	public void setComponentProperties (WebFormControllerComponent component);
 	
 	public WebFormControllerComponent getComponentProperties ();
+	
 }

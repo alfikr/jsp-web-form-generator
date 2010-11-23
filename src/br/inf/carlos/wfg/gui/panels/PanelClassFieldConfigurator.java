@@ -11,9 +11,9 @@ import javax.swing.JTextField;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
+import br.inf.carlos.wfg.gui.actions.ActionListenerComboBoxClassFields;
 import br.inf.carlos.wfg.gui.models.FieldComboBoxModel;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
-import br.inf.carlos.wfg.gui.panels.impl.PanelWebFormComponentText;
 import br.inf.carlos.wfg.util.WebFormUtil;
 
 /**
@@ -116,11 +116,7 @@ public class PanelClassFieldConfigurator extends JPanel
         buttonSalvarConfiguracao.setText("Salvar Configurações");
         this.add						(buttonSalvarConfiguracao, new AbsoluteConstraints(450, 390, -1, -1));
         
-        PanelWebFormComponentText p = new PanelWebFormComponentText();
-        //AbsoluteConstraints(int x, int y, int width, int height)
-        //this.panelContainerPanelComponents.add(p, new AbsoluteConstraints(1, -1, 640, 80));
-        //this.add(p, new AbsoluteConstraints(1, -30));
-        this.add(p, new AbsoluteConstraints(1, 165, 640, 250));
+        this.getComboClassFields().addActionListener(new ActionListenerComboBoxClassFields(this));
     }
 
 	public ObjectProperties getObjectProperties() {

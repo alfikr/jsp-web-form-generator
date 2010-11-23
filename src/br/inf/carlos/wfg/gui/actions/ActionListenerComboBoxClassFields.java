@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+
+import br.inf.carlos.wfg.gui.object.FieldObject;
+import br.inf.carlos.wfg.gui.panels.PanelClassFieldConfigurator;
+import br.inf.carlos.wfg.gui.panels.impl.PanelWebFormComponentText;
+
 /**
  * Esta classe implementa o controle das ações de troca de item da caixa
  * de Fields de uma classe mapeada.
@@ -15,6 +21,13 @@ import javax.swing.JComboBox;
  */
 public class ActionListenerComboBoxClassFields implements ActionListener
 {
+	private PanelClassFieldConfigurator classFieldConfigurator;
+	
+	public ActionListenerComboBoxClassFields(PanelClassFieldConfigurator classFieldConfigurator)
+	{
+		super();
+		this.classFieldConfigurator = classFieldConfigurator;
+	}
 
 	/**
 	 * Este método processa uma ação a cada troca de item do combobox de 
@@ -25,9 +38,20 @@ public class ActionListenerComboBoxClassFields implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent action)
 	{
+		System.out.println("Passando pelo actionPerformed");
 		JComboBox combo = (JComboBox) action.getSource();
 		
+		FieldObject field = (FieldObject) combo.getSelectedItem();
+		System.out.println(field.toString());
+		System.out.println(field.getField());
+		PanelWebFormComponentText p = new PanelWebFormComponentText(field, this.getClassFieldConfigurator().getObjectProperties());
 		
+		this.getClassFieldConfigurator().add(p, new AbsoluteConstraints(1, 165, 640, 250));
+		this.getClassFieldConfigurator().getButtonSalvarConfiguracao().setEnabled(false);
+		this.getClassFieldConfigurator().updateUI();
 	}
 
+	public PanelClassFieldConfigurator getClassFieldConfigurator() {
+		return classFieldConfigurator;
+	}
 }
