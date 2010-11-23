@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import br.inf.carlos.wfg.gui.forms.PanelPackageSelector;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.gui.panels.PanelClassSelector;
+import br.inf.carlos.wfg.teste.beans.Cliente;
 
 /**
  * 
@@ -25,6 +26,7 @@ public class FrameMenuInicial extends JFrame
 	public FrameMenuInicial()
 	{
 		this.objectProperties = new ObjectProperties();
+		this.objectProperties.getClassesSelecionadas().add(Cliente.class);
 		initComponents();
 	}
 

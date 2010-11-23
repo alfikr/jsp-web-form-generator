@@ -13,6 +13,7 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import br.inf.carlos.wfg.gui.models.FieldComboBoxModel;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
+import br.inf.carlos.wfg.gui.panels.impl.PanelWebFormComponentText;
 import br.inf.carlos.wfg.util.WebFormUtil;
 
 /**
@@ -33,7 +34,7 @@ public class PanelClassFieldConfigurator extends JPanel
     private JLabel jLabel3;
     private JLabel jLabel4;
     private JLabel jLabel5;
-    private JPanel jPanel1;
+    private JPanel panelContainerPanelComponents;
     private JPanel painelClassFields;
     private JPanel panelClassProperties;
     private JComboBox submitType;
@@ -55,7 +56,7 @@ public class PanelClassFieldConfigurator extends JPanel
     //TODO public AbsoluteConstraints(int x, int y, int width, int height)
     private void initComponents()
     {
-        jPanel1 = new JPanel();
+        panelContainerPanelComponents = new JPanel();
         painelClassFields = new JPanel();
         jLabel1 = new JLabel();
         comboClassFields = new JComboBox();
@@ -72,9 +73,9 @@ public class PanelClassFieldConfigurator extends JPanel
 
         this.setLayout					(new AbsoluteLayout());
 
-        jPanel1.setBorder				(BorderFactory.createEtchedBorder());
-        jPanel1.setLayout				(new java.awt.BorderLayout());
-        this.add						(jPanel1, new AbsoluteConstraints(10, 180, 640, 180));
+        panelContainerPanelComponents.setBorder				(BorderFactory.createEtchedBorder());
+        panelContainerPanelComponents.setLayout				(new AbsoluteLayout());
+        //this.add						(panelContainerPanelComponents, new AbsoluteConstraints(10, 180, 640, 180));
 
         painelClassFields.setBorder		(BorderFactory.createTitledBorder("Classe: "));
         painelClassFields.setLayout		(new AbsoluteLayout());
@@ -113,7 +114,13 @@ public class PanelClassFieldConfigurator extends JPanel
         this.add						(panelClassProperties, new AbsoluteConstraints(10, 10, 640, 80));
 
         buttonSalvarConfiguracao.setText("Salvar Configurações");
-        this.add						(buttonSalvarConfiguracao, new AbsoluteConstraints(500, 370, -1, -1));
+        this.add						(buttonSalvarConfiguracao, new AbsoluteConstraints(450, 390, -1, -1));
+        
+        PanelWebFormComponentText p = new PanelWebFormComponentText();
+        //AbsoluteConstraints(int x, int y, int width, int height)
+        //this.panelContainerPanelComponents.add(p, new AbsoluteConstraints(1, -1, 640, 80));
+        //this.add(p, new AbsoluteConstraints(1, -30));
+        this.add(p, new AbsoluteConstraints(1, 165, 640, 250));
     }
 
 	public ObjectProperties getObjectProperties() {
