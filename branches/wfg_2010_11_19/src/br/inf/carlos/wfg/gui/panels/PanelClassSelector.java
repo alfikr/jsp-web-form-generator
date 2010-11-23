@@ -47,7 +47,7 @@ public class PanelClassSelector extends JPanel
         jLabel1.setText			("Selecione uma Classe: ");
         this.add				(jLabel1, new AbsoluteConstraints(20, 10, -1, -1));
 
-        comboClasses.setModel	(new ClassComboBoxModel(this.getObjectProperties().getClassesSelecionadas()));
+        comboClasses.setModel	(new ClassComboBoxModel(this.getObjectProperties().getComponents()));
         
         this.add				(comboClasses, new AbsoluteConstraints(20, 30, 280, -1));
 

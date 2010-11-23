@@ -3,7 +3,6 @@ package br.inf.carlos.wfg.gui.forms;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -19,6 +18,7 @@ import javax.swing.JTextField;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
+import br.inf.carlos.wfg.components.WebComponent;
 import br.inf.carlos.wfg.components.WebFormAnnotationMapper;
 import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.models.ListModelClasses;
@@ -26,10 +26,11 @@ import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.util.WebFormUtil;
 
 /**
- *
- * @author carlos
+ * Contém a definição do formulário para a seleção do pacote
+ * e das classes.
+ * 
+ * @author Carlos A. Junior
  */
-
 public class PanelPackageSelector extends JPanel
 {
 	private static final long serialVersionUID = 1L;
@@ -106,6 +107,27 @@ public class PanelPackageSelector extends JPanel
         
         add(jbSalvar, new AbsoluteConstraints(420, 330, -1, -1));
         
+        jlClasses.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				jlClassesKeyPressed(e);
+			}
+		});
+        
         packageDirectory.addKeyListener(new KeyListener() {
 			
 			@Override
@@ -124,6 +146,14 @@ public class PanelPackageSelector extends JPanel
 				componentMascaraJavascriptKeyPressed(evt);
 			}
 		});
+    }
+    
+    private void jlClassesKeyPressed(KeyEvent evt)
+    {
+    	if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+    	{
+    		this.jbSalvarActionPerformed(null);
+    	}
     }
     
     private void componentMascaraJavascriptKeyPressed(KeyEvent evt)
@@ -174,21 +204,26 @@ public class PanelPackageSelector extends JPanel
     	
     	if(jlClasses.getSelectedIndices().length > 0)
     	{
-    		List<Class> classes = new ArrayList<Class>();
-    		
     		Object[] objects = jlClasses.getSelectedValues();
     		
     		for (Object object : objects)
     		{
 				try {
 					Class c = Class.forName(this.packageDirectory.getText() + "." + (String) object);
-					classes.add(c);
+					
+					if(!this.getObjectProperties().hasClassInWebComponents(c))
+					{
+						WebComponent component = new WebComponent();
+						component.setClazz(c);
+						component.setFields(WebFormUtil.getClassFields(c));
+						
+						this.getObjectProperties().getComponents().add(component);
+					}
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
 			}
     		
-    		this.getObjectProperties().setClassesSelecionadas(classes);
     		this.getFrameMenuInicial().setObjectProperties(this.getObjectProperties());
     		JOptionPane.showMessageDialog(this, "Classes registradas com sucesso!");
     		

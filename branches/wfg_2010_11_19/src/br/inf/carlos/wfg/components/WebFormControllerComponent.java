@@ -2,8 +2,6 @@ package br.inf.carlos.wfg.components;
 
 import java.util.List;
 
-
-
 public class WebFormControllerComponent
 {
 	private List<WebFormComponent> components;

@@ -271,6 +271,14 @@ public class WebFormUtil
 		return object;
 	}
 	
+	/**
+	 * Retorna todos os atributos de uma classe encapsulados dentro de um
+	 * ArrayList de objetos FieldObject.
+	 * 
+	 * @param clazz
+	 * 
+	 * @return List
+	 */
 	@SuppressWarnings("unchecked")
 	public static List<FieldObject> getClassFields (Class clazz)
 	{
