@@ -4,8 +4,18 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import br.inf.carlos.wfg.components.WebFormAnnotationMapper;
 import br.inf.carlos.wfg.gui.FrameMenuInicial;
@@ -18,9 +28,18 @@ import br.inf.carlos.wfg.util.WebFormUtil;
  * @author carlos
  */
 
-public class PanelPackageSelector extends javax.swing.JPanel
+public class PanelPackageSelector extends JPanel
 {
 	private static final long serialVersionUID = 1L;
+	
+	private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JScrollPane jScrollPane1;
+    private JSeparator jSeparator1;
+    private JButton jbCarregarClasses;
+    private JButton jbSalvar;
+    private JList jlClasses;
+    private JTextField packageDirectory;
 	
 	/**
 	 * Referencia para o objeto global.
@@ -42,22 +61,22 @@ public class PanelPackageSelector extends javax.swing.JPanel
     private void initComponents()
     {
 
-        jLabel1 = new javax.swing.JLabel();
-        packageDirectory = new javax.swing.JTextField();
-        jbCarregarClasses = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jlClasses = new javax.swing.JList();
-        jbSalvar = new javax.swing.JButton();
+        jLabel1 = new JLabel();
+        packageDirectory = new JTextField();
+        jbCarregarClasses = new JButton();
+        jSeparator1 = new JSeparator();
+        jLabel2 = new JLabel();
+        jScrollPane1 = new JScrollPane();
+        jlClasses = new JList();
+        jbSalvar = new JButton();
         
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new AbsoluteLayout());
 
         jLabel1.setText("Pacote das classes \"beans\" do projeto:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(jLabel1, new AbsoluteConstraints(20, 20, -1, -1));
 
         packageDirectory.setText("br.inf.carlos.wfg.teste.beans");
-        add(packageDirectory, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 450, -1));
+        add(packageDirectory, new AbsoluteConstraints(20, 50, 450, -1));
 
         jbCarregarClasses.setText("Carregar Classes");
         jbCarregarClasses.addActionListener(new java.awt.event.ActionListener() {
@@ -65,15 +84,16 @@ public class PanelPackageSelector extends javax.swing.JPanel
                 jbCarregarClassesActionPerformed(evt);
             }
         });
-        add(jbCarregarClasses, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 140, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 440, 10));
+        
+        add(jbCarregarClasses, new AbsoluteConstraints(300, 90, 180, -1));
+        add(jSeparator1, new AbsoluteConstraints(20, 140, 440, 10));
 
         jLabel2.setText("Classes encontradas:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        add(jLabel2, new AbsoluteConstraints(20, 160, -1, -1));
 
         jScrollPane1.setViewportView(jlClasses);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 450, 140));
+        add(jScrollPane1, new AbsoluteConstraints(20, 180, 450, 140));
 
         jbSalvar.setText("Salvar");
         jbSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,9 +101,10 @@ public class PanelPackageSelector extends javax.swing.JPanel
                 jbSalvarActionPerformed(evt);
             }
         });
-        add(jbSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
-    }// </editor-fold>//GEN-END:initComponents
-
+        
+        add(jbSalvar, new AbsoluteConstraints(420, 330, -1, -1));
+    }
+    
     @SuppressWarnings("unchecked")
 	private void jbCarregarClassesActionPerformed(ActionEvent evt)
     {
@@ -172,16 +193,4 @@ public class PanelPackageSelector extends javax.swing.JPanel
 	public void setParentFrame(JFrame parent) {
 		this.parent = parent;
 	}
-
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton jbCarregarClasses;
-    private javax.swing.JButton jbSalvar;
-    private javax.swing.JList jlClasses;
-    private javax.swing.JTextField packageDirectory;
-    // End of variables declaration//GEN-END:variables
-
 }

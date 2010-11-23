@@ -52,7 +52,8 @@ public class PanelClassFieldConfigurator extends JPanel
     	this.clazz				= clazz;
         initComponents();
     }
-
+    
+    //TODO public AbsoluteConstraints(int x, int y, int width, int height)
     private void initComponents()
     {
         jPanel1 = new JPanel();
@@ -85,7 +86,7 @@ public class PanelClassFieldConfigurator extends JPanel
         FieldComboBoxModel fieldModel = new FieldComboBoxModel(WebFormUtil.getClassFields(this.getClazz()));
         
         comboClassFields.setModel		(fieldModel);
-        painelClassFields.add			(comboClassFields, new AbsoluteConstraints(10, 40, 120, -1));
+        painelClassFields.add			(comboClassFields, new AbsoluteConstraints(10, 40, 250, -1));
 
         this.add						(painelClassFields, new AbsoluteConstraints(10, 90, 640, 80));
 
