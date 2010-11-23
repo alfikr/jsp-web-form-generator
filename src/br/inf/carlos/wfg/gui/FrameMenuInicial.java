@@ -93,7 +93,7 @@ public class FrameMenuInicial extends JFrame
 			JFrame frame = new JFrame();
 			JPanel abas = new PanelClassSelector(this.objectProperties);
 			
-			frame.add(abas);
+			frame.getContentPane().add(abas);
 			frame.setVisible(true);
 			frame.pack();
 			frame.setResizable(false);
@@ -114,7 +114,7 @@ public class FrameMenuInicial extends JFrame
 		JFrame frame = new JFrame();
 		JPanel panelPackage = new PanelPackageSelector(this.objectProperties, this, frame);
 		
-		frame.add(panelPackage);
+		frame.getContentPane().add(panelPackage);
 		frame.setVisible(true);
 		frame.pack();
 		frame.setLocation(300, 300);
