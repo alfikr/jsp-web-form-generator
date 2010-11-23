@@ -38,16 +38,21 @@ public class ActionListenerComboBoxClassFields implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent action)
 	{
-		System.out.println("Passando pelo actionPerformed");
 		JComboBox combo = (JComboBox) action.getSource();
-		
 		FieldObject field = (FieldObject) combo.getSelectedItem();
-		System.out.println(field.toString());
-		System.out.println(field.getField());
-		PanelWebFormComponentText p = new PanelWebFormComponentText(field, this.getClassFieldConfigurator().getObjectProperties());
-		
-		this.getClassFieldConfigurator().add(p, new AbsoluteConstraints(1, 165, 640, 250));
-		this.getClassFieldConfigurator().getButtonSalvarConfiguracao().setEnabled(false);
+		if(field.getField() != null)
+		{
+			PanelWebFormComponentText p = new PanelWebFormComponentText(field, this.getClassFieldConfigurator().getObjectProperties());
+			
+			this.getClassFieldConfigurator().add(p, new AbsoluteConstraints(1, 165, 640, 250), 1);
+			this.getClassFieldConfigurator().getButtonSalvarConfiguracao().setEnabled(true);
+		}
+		else
+		{
+			this.getClassFieldConfigurator().remove(1);
+			this.getClassFieldConfigurator().getButtonSalvarConfiguracao().setEnabled(false);
+		}
+		// Atualiza o JPanel.
 		this.getClassFieldConfigurator().updateUI();
 	}
 
