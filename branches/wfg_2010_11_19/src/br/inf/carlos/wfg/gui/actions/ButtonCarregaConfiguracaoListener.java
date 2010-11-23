@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import br.inf.carlos.wfg.gui.FrameMenuInicial;
+import br.inf.carlos.wfg.gui.object.ClassObject;
+import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.gui.panels.PanelClassFieldConfigurator;
 import br.inf.carlos.wfg.gui.panels.PanelClassSelector;
 import br.inf.carlos.wfg.teste.beans.Cliente;
@@ -28,18 +31,25 @@ public class ButtonCarregaConfiguracaoListener implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-//		JFrame frame = new JFrame();
-//		JPanel abas = new PanelClassFieldConfigurator(null, this, Cliente.class);
-//		
-//		frame.add(abas);
-//		frame.setVisible(true);
-//		frame.pack();
-//		frame.setResizable(false);
-//		frame.setLocation(200, 200);
-//		frame.setTitle("Configuração dos Componentes HTML");
+		ClassObject cl = (ClassObject) this.getPanelClassSelector().getComboClasses().getSelectedItem();
+		
+		JFrame frame = new JFrame();
+
+		JPanel abas = new PanelClassFieldConfigurator(
+			this.getPanelClassSelector().getObjectProperties(), 
+			this.getPanelClassSelector(), 
+			cl.getClazz()
+		);
+		
+		frame.add(abas);
+		frame.setVisible(true);
+		frame.pack();
+		frame.setResizable(false);
+		frame.setLocation(200, 200);
+		frame.setTitle("Configuração dos Componentes HTML");
 	}
 
-	public PanelClassSelector getPanelClassSelector() {
+	private PanelClassSelector getPanelClassSelector() {
 		return panelClassSelector;
 	}
 }

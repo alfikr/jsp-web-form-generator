@@ -23,4 +23,9 @@ public class ClassObject
 	public void setClazz(Class clazz) {
 		this.clazz = clazz;
 	}
+
+	@Override
+	public String toString() {
+		return this.getClazz().getSimpleName();
+	}
 }

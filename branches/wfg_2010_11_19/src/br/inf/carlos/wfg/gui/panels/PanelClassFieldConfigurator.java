@@ -11,7 +11,6 @@ import javax.swing.JTextField;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
-import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.models.FieldComboBoxModel;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.util.WebFormUtil;
@@ -41,14 +40,14 @@ public class PanelClassFieldConfigurator extends JPanel
     
     private ObjectProperties objectProperties;
     
-    private FrameMenuInicial frameMenuInicial;
+    private PanelClassSelector panelClassSelector;
     
     private Class clazz;
     
-    public PanelClassFieldConfigurator(ObjectProperties objectProperties, FrameMenuInicial frameMenuInicial, Class clazz)
+    public PanelClassFieldConfigurator(ObjectProperties objectProperties, PanelClassSelector panelClassSelector, Class clazz)
     {
     	this.objectProperties 	= objectProperties;
-    	this.frameMenuInicial 	= frameMenuInicial;
+    	this.panelClassSelector = panelClassSelector;
     	this.clazz				= clazz;
         initComponents();
     }
@@ -157,10 +156,11 @@ public class PanelClassFieldConfigurator extends JPanel
 		return submitType;
 	}
 
-	public FrameMenuInicial getFrameMenuInicial() {
-		return frameMenuInicial;
+	public PanelClassSelector getPanelClassSelector() {
+		return panelClassSelector;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Class getClazz() {
 		return clazz;
 	}
