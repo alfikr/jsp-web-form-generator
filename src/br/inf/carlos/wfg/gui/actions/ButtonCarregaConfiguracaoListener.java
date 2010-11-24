@@ -1,5 +1,6 @@
 package br.inf.carlos.wfg.gui.actions;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,11 +40,12 @@ public class ButtonCarregaConfiguracaoListener implements ActionListener
 		);
 		
 		frame.add(abas);
-		frame.setVisible(true);
-		frame.pack();
-		frame.setResizable(false);
-		frame.setLocation(200, 200);
-		frame.setTitle("Configuração dos Componentes HTML");
+		frame.setVisible	(true);
+		frame.pack			();
+		//frame.setResizable	(false);
+		frame.setLocation	(200, 200);
+		frame.setPreferredSize(new Dimension(800,600));
+		frame.setTitle		("Configuração dos Componentes HTML");
 	}
 
 	private PanelClassSelector getPanelClassSelector() {

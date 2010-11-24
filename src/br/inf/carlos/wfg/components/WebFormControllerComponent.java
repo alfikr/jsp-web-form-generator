@@ -24,7 +24,7 @@ public class WebFormControllerComponent
 		this.components = new ArrayList<WebFormComponent>();
 		this.clazz 		= clazz;
 	}
-
+	
 	public List<WebFormComponent> getComponents() {
 		return components;
 	}
