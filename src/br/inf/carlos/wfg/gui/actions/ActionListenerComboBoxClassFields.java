@@ -42,7 +42,11 @@ public class ActionListenerComboBoxClassFields implements ActionListener
 		FieldObject field = (FieldObject) combo.getSelectedItem();
 		if(field.getField() != null)
 		{
-			PanelWebFormComponentText p = new PanelWebFormComponentText(field, this.getClassFieldConfigurator().getObjectProperties());
+			PanelWebFormComponentText p = new PanelWebFormComponentText(
+				field, 
+				this.getClassFieldConfigurator().getObjectProperties(),
+				this.classFieldConfigurator.getClazz()
+			);
 			
 			this.getClassFieldConfigurator().add(p, new AbsoluteConstraints(1, 165, 640, 250), 1);
 			this.getClassFieldConfigurator().getButtonSalvarConfiguracao().setEnabled(true);

@@ -79,23 +79,23 @@ public class WebFormComponentFactory
 	public static WebFormComponent createInstance (WebFormObject object)
 	{
 		WebFormComponent component = null;
-		
+		//FIXME arrumar a factory dos componentes.
 		switch (object.getComponentType())
 		{
 			case TEXT:
-				component = new WebFormComponentText(object);
+				component = new WebFormComponentText(object, null);
 			break;
 			case SELECT:
-				component = new WebFormComponentSelect(object);
+				component = new WebFormComponentSelect(object, null);
 			break;
 			case TEXTAREA:
-				component = new WebFormComponentTextArea(object);
+				component = new WebFormComponentTextArea(object, null);
 			break;
 			case CHECKBOX:
-				component = new WebFormComponentCheckBox(object);
+				component = new WebFormComponentCheckBox(object, null);
 			break;
 			case RADIOBOX:
-				component = new WebFormComponentRadioBox(object);
+				component = new WebFormComponentRadioBox(object, null);
 			break;
 		}
 		
