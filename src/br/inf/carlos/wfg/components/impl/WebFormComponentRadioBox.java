@@ -11,9 +11,10 @@ import br.inf.carlos.wfg.util.WebFormUtil;
  */
 public class WebFormComponentRadioBox  extends WebFormComponent
 {
-	public WebFormComponentRadioBox(WebFormObject object)
-	{
-		super(object);
+
+	public WebFormComponentRadioBox(WebFormObject object, Class clazz) {
+		super(object, clazz);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

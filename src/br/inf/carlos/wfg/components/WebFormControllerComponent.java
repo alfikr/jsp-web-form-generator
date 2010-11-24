@@ -1,5 +1,6 @@
 package br.inf.carlos.wfg.components;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WebFormControllerComponent
@@ -13,6 +14,14 @@ public class WebFormControllerComponent
 	{
 		super();
 		this.components = components;
+		this.clazz 		= clazz;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public WebFormControllerComponent(Class clazz)
+	{
+		super();
+		this.components = new ArrayList<WebFormComponent>();
 		this.clazz 		= clazz;
 	}
 

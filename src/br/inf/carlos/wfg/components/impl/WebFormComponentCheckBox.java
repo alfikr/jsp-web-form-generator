@@ -11,9 +11,10 @@ import br.inf.carlos.wfg.util.WebFormUtil;
  */
 public class WebFormComponentCheckBox  extends WebFormComponent
 {
-	public WebFormComponentCheckBox(WebFormObject object)
-	{
-		super(object);
+
+	public WebFormComponentCheckBox(WebFormObject object, Class clazz) {
+		super(object, clazz);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

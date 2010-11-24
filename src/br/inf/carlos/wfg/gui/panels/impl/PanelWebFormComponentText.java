@@ -135,39 +135,53 @@ public class PanelWebFormComponentText extends PanelFieldsConfigurator
         add(panelConfiguracoes, new AbsoluteConstraints(10, 30, 630, 190));
         
     }
+    
+    @Override
+    public boolean isValid ()
+    {
+    	
+    	return true;
+    }
 
 	@Override
-	public WebFormControllerComponent getComponentProperties() {
-		// TODO Auto-generated method stub
+	public WebFormComponent getComponentProperties()
+	{
+		
 		return null;
 	}
 
 	@Override
 	public void setComponentProperties(WebFormControllerComponent component) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public WebFormComponent saveSettings()
 	{
-		WebFormObject o = new WebFormObject();
-		
-		o.setComponentCssClass	(this.componentCssClassName.getText());
-		o.setComponentDisabled	(this.componentDisabled.getSelectedItem().equals("Sim"));
-		o.setComponentReadOnly	(this.componentReadOnly.getSelectedItem().equals("Sim"));
-		
-		o.setComponentId		(this.componentID.getText());
-		o.setComponentName		(this.componentName.getText());
-		o.setComponentSize		(Integer.parseInt(this.componentSize.getText()));
-		
-		o.setComponentMaxLength	(Integer.parseInt(this.componentMaxLength.getText()));
-		o.setComponentType		(WebFormComponentType.TEXT);
-		o.setMascaraJavascript	(this.componentMascaraJavascript.getText());
-		
-		WebFormComponent component = new WebFormComponentText(o);
-		
-		return component;
+		if(this.isValid())
+		{
+			WebFormObject o = new WebFormObject();
+			
+			o.setComponentCssClass	(this.componentCssClassName.getText());
+			o.setComponentDisabled	(this.componentDisabled.getSelectedItem().equals("Sim"));
+			o.setComponentReadOnly	(this.componentReadOnly.getSelectedItem().equals("Sim"));
+			
+			o.setComponentId		(this.componentID.getText());
+			o.setComponentName		(this.componentName.getText());
+			o.setComponentSize		(Integer.parseInt(this.componentSize.getText()));
+			
+			o.setComponentMaxLength	(Integer.parseInt(this.componentMaxLength.getText()));
+			o.setComponentType		(WebFormComponentType.TEXT);
+			o.setMascaraJavascript	(this.componentMascaraJavascript.getText());
+			
+			WebFormComponent component = new WebFormComponentText(o);
+			
+			return component;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 }
