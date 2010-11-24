@@ -47,15 +47,16 @@ public class PanelWebFormComponentText extends PanelFieldsConfigurator
     private JLabel labelNomeAtributo;
     private JPanel panelConfiguracoes;
     
-	public PanelWebFormComponentText(FieldObject field, ObjectProperties objectProperties)
-	{
-		super(field, objectProperties);
-	}
-
-
+    
 	private static final long serialVersionUID = 1L;
 
-    protected void initComponents() 
+	
+    public PanelWebFormComponentText(FieldObject field, ObjectProperties objectProperties, Class clazz)
+    {
+		super(field, objectProperties, clazz);
+	}
+
+	protected void initComponents() 
     {
         jLabel1 = new JLabel();
         labelNomeAtributo = new JLabel();
@@ -174,7 +175,7 @@ public class PanelWebFormComponentText extends PanelFieldsConfigurator
 			o.setComponentType		(WebFormComponentType.TEXT);
 			o.setMascaraJavascript	(this.componentMascaraJavascript.getText());
 			
-			WebFormComponent component = new WebFormComponentText(o);
+			WebFormComponent component = new WebFormComponentText(o, this.getClazz());
 			
 			return component;
 		}

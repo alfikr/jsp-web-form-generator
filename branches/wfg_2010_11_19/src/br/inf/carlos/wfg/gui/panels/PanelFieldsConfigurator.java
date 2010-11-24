@@ -25,20 +25,27 @@ public abstract class PanelFieldsConfigurator extends JPanel implements IPanelHT
 	 */
 	private ObjectProperties objectProperties;
 	
+	private Class clazz;
+	
 	/**
 	 * Construtor padrão para os JPanels dos componentes HTML.
 	 * 
 	 * @param field
 	 * @param objectProperties
 	 */
-	public PanelFieldsConfigurator (FieldObject field, ObjectProperties objectProperties)
+	public PanelFieldsConfigurator (FieldObject field, ObjectProperties objectProperties, Class clazz)
 	{
-		this.fieldObject = field;
-		this.objectProperties = objectProperties;
+		this.fieldObject 		= field;
+		this.objectProperties 	= objectProperties;
+		this.clazz				= clazz;
 		
 		this.initComponents();
 	}
 	
+	public Class getClazz() {
+		return clazz;
+	}
+
 	protected abstract void initComponents();
 
 	public FieldObject getFieldObject() {
