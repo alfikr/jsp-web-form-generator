@@ -24,6 +24,7 @@ public class ObjectProperties
 	
 	public ObjectProperties()
 	{
+		System.out.println("Criando instancia do objeto");
 		this.controllers			= new ArrayList<WebFormControllerComponent>();
 	}
 	
@@ -54,6 +55,15 @@ public class ObjectProperties
 	 */
 	public WebFormComponent findWebFormComponentByClassName (Class c)
 	{
+		for (WebFormControllerComponent controller : this.controllers)
+		{
+			System.out.println("size:" + controller.getComponents().size());
+			for (WebFormComponent component : controller.getComponents())
+			{
+				System.out.println("-- classe: " + component.getClazz().getSimpleName());
+			}
+		}
+		
 		for (WebFormControllerComponent controller : this.controllers)
 		{
 			for (WebFormComponent component : controller.getComponents())
