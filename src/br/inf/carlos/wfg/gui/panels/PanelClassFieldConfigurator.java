@@ -1,16 +1,22 @@
 package br.inf.carlos.wfg.gui.panels;
 
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
+import br.inf.carlos.wfg.components.WebComponent;
 import br.inf.carlos.wfg.gui.actions.ActionListenerComboBoxClassFields;
 import br.inf.carlos.wfg.gui.models.FieldComboBoxModel;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
@@ -114,9 +120,40 @@ public class PanelClassFieldConfigurator extends JPanel
         this.add						(panelClassProperties, new AbsoluteConstraints(10, 10, 640, 80));
 
         buttonSalvarConfiguracao.setText("Salvar Configurações");
+        buttonSalvarConfiguracao.setEnabled(false);
         this.add						(buttonSalvarConfiguracao, new AbsoluteConstraints(450, 390, -1, -1));
         
         this.getComboClassFields().addActionListener(new ActionListenerComboBoxClassFields(this));
+        this.getButtonSalvarConfiguracao().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent event)
+			{
+				Component[] components = getComponents();
+				
+				for (Component component : components)
+				{
+					if(component instanceof PanelFieldsConfigurator)
+					{
+						buttonSalvarConfiguracaoActionPerformed(event, (PanelFieldsConfigurator) component);
+					}
+				}
+			}
+		});
+    }
+    
+    private void buttonSalvarConfiguracaoActionPerformed (ActionEvent event, PanelFieldsConfigurator panel)
+    {
+    	WebComponent component = this.getObjectProperties().findComponentByClassName(this.getClazz());
+    	
+    	if(component instanceof WebComponent)
+    	{
+    		JOptionPane.showMessageDialog(this, "Informações salvas...");
+    	}
+    	else
+    	{
+    		JOptionPane.showMessageDialog(this, "Nenhum componente econtrado para esta classe");
+    	}
     }
 
 	public ObjectProperties getObjectProperties() {

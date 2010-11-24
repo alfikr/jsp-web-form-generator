@@ -10,10 +10,14 @@ import javax.swing.JTextField;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
+import br.inf.carlos.wfg.components.WebFormComponent;
 import br.inf.carlos.wfg.components.WebFormControllerComponent;
+import br.inf.carlos.wfg.components.impl.WebFormComponentText;
+import br.inf.carlos.wfg.enums.WebFormComponentType;
 import br.inf.carlos.wfg.gui.object.FieldObject;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.gui.panels.PanelFieldsConfigurator;
+import br.inf.carlos.wfg.object.WebFormObject;
 
 /**
  *
@@ -121,7 +125,7 @@ public class PanelWebFormComponentText extends PanelFieldsConfigurator
         componentDisabled.setSelectedIndex(1);
         panelConfiguracoes.add(componentDisabled, new AbsoluteConstraints(100, 140, -1, -1));
 
-        jLabel10.setText("Disabled");
+        jLabel10.setText("Disabled:");
         panelConfiguracoes.add(jLabel10, new AbsoluteConstraints(100, 120, -1, -1));
 
         componentReadOnly.setModel(new DefaultComboBoxModel(new String[] { "Sim", "Não" }));
@@ -142,6 +146,28 @@ public class PanelWebFormComponentText extends PanelFieldsConfigurator
 	public void setComponentProperties(WebFormControllerComponent component) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public WebFormComponent saveSettings()
+	{
+		WebFormObject o = new WebFormObject();
+		
+		o.setComponentCssClass	(this.componentCssClassName.getText());
+		o.setComponentDisabled	(this.componentDisabled.getSelectedItem().equals("Sim"));
+		o.setComponentReadOnly	(this.componentReadOnly.getSelectedItem().equals("Sim"));
+		
+		o.setComponentId		(this.componentID.getText());
+		o.setComponentName		(this.componentName.getText());
+		o.setComponentSize		(Integer.parseInt(this.componentSize.getText()));
+		
+		o.setComponentMaxLength	(Integer.parseInt(this.componentMaxLength.getText()));
+		o.setComponentType		(WebFormComponentType.TEXT);
+		o.setMascaraJavascript	(this.componentMascaraJavascript.getText());
+		
+		WebFormComponent component = new WebFormComponentText(o);
+		
+		return component;
 	}
 
 }
