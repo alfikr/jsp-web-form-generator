@@ -5,19 +5,19 @@ import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 
-import br.inf.carlos.wfg.components.WebComponent;
+import br.inf.carlos.wfg.components.WebFormControllerComponent;
 import br.inf.carlos.wfg.gui.object.ClassObject;
 
 public class ClassComboBoxModel extends DefaultComboBoxModel
 {
 	private static final long serialVersionUID = 1L;
 
-	public ClassComboBoxModel(List<WebComponent> components)
+	public ClassComboBoxModel(List<WebFormControllerComponent> controllers)
 	{
 		super();
-		for (WebComponent component : components)
+		for (WebFormControllerComponent controller : controllers)
 		{
-			this.addElement(new ClassObject(component.getClazz()));
+			this.addElement(new ClassObject(controller.getClazz()));
 		}
 	}
 

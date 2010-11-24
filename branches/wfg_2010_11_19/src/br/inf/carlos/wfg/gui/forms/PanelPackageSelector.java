@@ -18,8 +18,8 @@ import javax.swing.JTextField;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
-import br.inf.carlos.wfg.components.WebComponent;
 import br.inf.carlos.wfg.components.WebFormAnnotationMapper;
+import br.inf.carlos.wfg.components.WebFormControllerComponent;
 import br.inf.carlos.wfg.gui.FrameMenuInicial;
 import br.inf.carlos.wfg.gui.models.ListModelClasses;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
@@ -211,13 +211,11 @@ public class PanelPackageSelector extends JPanel
 				try {
 					Class c = Class.forName(this.packageDirectory.getText() + "." + (String) object);
 					
-					if(!this.getObjectProperties().hasClassInWebComponents(c))
+					if(!this.getObjectProperties().hasClassInWebFormControllerComponents(c))
 					{
-						WebComponent component = new WebComponent();
-						component.setClazz(c);
-						component.setFields(WebFormUtil.getClassFields(c));
-						
-						this.getObjectProperties().getComponents().add(component);
+						WebFormControllerComponent controller = new WebFormControllerComponent(c);
+						//WebFormUtil.getClassFields(c)
+						this.getObjectProperties().getControllers().add(controller);
 					}
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();

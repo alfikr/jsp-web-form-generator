@@ -8,7 +8,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import br.inf.carlos.wfg.components.WebComponent;
+import br.inf.carlos.wfg.components.WebFormControllerComponent;
 import br.inf.carlos.wfg.gui.forms.PanelPackageSelector;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
 import br.inf.carlos.wfg.gui.panels.PanelClassSelector;
@@ -28,9 +28,9 @@ public class FrameMenuInicial extends JFrame
 	{
 		this.objectProperties = new ObjectProperties();
 		
-		WebComponent c = new WebComponent();
-		c.setClazz(Cliente.class);
-		this.objectProperties.getComponents().add(c);
+		WebFormControllerComponent controller = new WebFormControllerComponent(Cliente.class);
+		
+		this.objectProperties.getControllers().add(controller);
 		
 		initComponents();
 	}
@@ -93,7 +93,7 @@ public class FrameMenuInicial extends JFrame
 	
 	private void jmiDefinicaoComponentesAction(ActionEvent evt)
 	{
-		if(this.objectProperties.getComponents().size() > 0)
+		if(this.objectProperties.getControllers().size() > 0)
 		{
 			JFrame frame = new JFrame();
 			JPanel abas = new PanelClassSelector(this.objectProperties);

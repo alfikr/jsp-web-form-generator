@@ -10,9 +10,9 @@ import br.inf.carlos.wfg.object.WebFormObject;
  */
 public class WebFormComponentTextArea  extends WebFormComponent
 {
-	public WebFormComponentTextArea(WebFormObject object)
-	{
-		super(object);
+	public WebFormComponentTextArea(WebFormObject object, Class clazz) {
+		super(object, clazz);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

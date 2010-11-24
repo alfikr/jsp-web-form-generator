@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
-import br.inf.carlos.wfg.components.WebComponent;
+import br.inf.carlos.wfg.components.WebFormComponent;
 import br.inf.carlos.wfg.gui.actions.ActionListenerComboBoxClassFields;
 import br.inf.carlos.wfg.gui.models.FieldComboBoxModel;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
@@ -144,9 +144,9 @@ public class PanelClassFieldConfigurator extends JPanel
     
     private void buttonSalvarConfiguracaoActionPerformed (ActionEvent event, PanelFieldsConfigurator panel)
     {
-    	WebComponent component = this.getObjectProperties().findComponentByClassName(this.getClazz());
+    	WebFormComponent component = this.getObjectProperties().findWebFormComponentByClassName(this.getClazz());
     	
-    	if(component instanceof WebComponent)
+    	if(component instanceof WebFormComponent)
     	{
     		JOptionPane.showMessageDialog(this, "Informações salvas...");
     	}

@@ -11,9 +11,10 @@ import br.inf.carlos.wfg.object.WebFormObject;
  */
 public class WebFormComponentSelect  extends WebFormComponent
 {
-	public WebFormComponentSelect(WebFormObject object)
-	{
-		super(object);
+
+	public WebFormComponentSelect(WebFormObject object, Class clazz) {
+		super(object, clazz);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
