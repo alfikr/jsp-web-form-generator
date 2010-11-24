@@ -1,5 +1,6 @@
 package br.inf.carlos.wfg.gui.interfaces;
 
+import br.inf.carlos.wfg.components.WebFormComponent;
 import br.inf.carlos.wfg.components.WebFormControllerComponent;
 
 /**
@@ -14,6 +15,13 @@ public interface IPanelHTMLComponentConfigurator
 	
 	public void setComponentProperties (WebFormControllerComponent component);
 	
-	public WebFormControllerComponent getComponentProperties ();
+	public WebFormComponent getComponentProperties ();
+	
+	/**
+	 * Salva os dados contidos dentro de uma JPanel.
+	 * 
+	 * @return WebFormComponent
+	 */
+	public WebFormComponent saveSettings ();
 	
 }

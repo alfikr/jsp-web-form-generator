@@ -13,15 +13,31 @@ public abstract class WebFormComponent implements IWebFormComponent
 {
 	private WebFormObject object;
 	
-	public WebFormComponent (WebFormObject object)
+	private Class clazz;
+	
+	public WebFormComponent (WebFormObject object, Class clazz)
 	{
 		this.object = object;
+		this.clazz  = clazz;
+	}
+	
+	public void setWebFormObject(WebFormObject o)
+	{
+		this.object = o;
 	}
 	
 	public WebFormObject getObject() {
 		return object;
 	}
 	
+	public Class getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(Class clazz) {
+		this.clazz = clazz;
+	}
+
 	@Override
 	public String renderComponent()
 	{
