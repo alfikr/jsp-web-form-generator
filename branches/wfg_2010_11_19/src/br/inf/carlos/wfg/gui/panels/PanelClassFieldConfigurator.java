@@ -17,6 +17,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 import br.inf.carlos.wfg.components.WebFormComponent;
+import br.inf.carlos.wfg.components.WebFormControllerComponent;
 import br.inf.carlos.wfg.gui.actions.ActionListenerComboBoxClassFields;
 import br.inf.carlos.wfg.gui.models.FieldComboBoxModel;
 import br.inf.carlos.wfg.gui.object.ObjectProperties;
@@ -144,6 +145,21 @@ public class PanelClassFieldConfigurator extends JPanel
     
     private void buttonSalvarConfiguracaoActionPerformed (ActionEvent event, PanelFieldsConfigurator panel)
     {
+    	if(!this.getObjectProperties().hasClassInWebFormControllerComponents(this.getClazz()))
+    	{
+    		WebFormControllerComponent controller = new WebFormControllerComponent(this.getClazz());
+    		
+    		WebFormComponent component = panel.saveSettings();
+    		
+    		if(component instanceof WebFormComponent)
+    		{
+    			controller.getComponents().remove(component);
+    			controller.getComponents().add(component);
+    		}
+    		
+    		this.getObjectProperties().getControllers().add(controller);
+    	}
+    	
     	WebFormComponent component = this.getObjectProperties().findWebFormComponentByClassName(this.getClazz());
     	
     	if(component instanceof WebFormComponent)
