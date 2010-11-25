@@ -54,7 +54,7 @@ public class FrameBase extends JFrame
 			this.getLayout().setRows( (this.getLayout().getRows() + 1) );
 		}
 		
-		JPanel panelSaveConfiguracao = new PainelComponenteSaveConfiguracao();
+		JPanel panelSaveConfiguracao = new PainelComponenteSaveConfiguracao(this.getClazz());
 		
 		this.getPainelBase().add(panelSaveConfiguracao);
 		//this.getLayout().setRows( (this.getLayout().getRows() + 1) );
