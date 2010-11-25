@@ -92,7 +92,7 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonProcessar, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                        .addComponent(buttonProcessar, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)) //129
                     .addComponent(jLabel2))
                 .addContainerGap())
         );
