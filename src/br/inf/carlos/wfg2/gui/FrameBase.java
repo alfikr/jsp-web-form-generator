@@ -10,6 +10,7 @@ import javax.swing.UIManager;
 
 import br.inf.carlos.wfg2.component.WebComponent;
 import br.inf.carlos.wfg2.gui.panels.PainelComponente;
+import br.inf.carlos.wfg2.gui.panels.PainelComponenteSaveConfiguracao;
 
 @SuppressWarnings("unchecked")
 public class FrameBase extends JFrame
@@ -34,7 +35,6 @@ public class FrameBase extends JFrame
 		this.getContentPane().add		(this.getPainelBase());
 		
 		try {
-			// Tema do próprio Ubuntu
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,10 +50,14 @@ public class FrameBase extends JFrame
 		this.getLayout().setColumns(1);
 		for (Field field : fields)
 		{
-			System.out.println(field.getName());
 			this.addComponent(PainelComponente.createPainelComponenteInstance(field, this.getClazz()));
 			this.getLayout().setRows( (this.getLayout().getRows() + 1) );
 		}
+		
+		JPanel panelSaveConfiguracao = new PainelComponenteSaveConfiguracao();
+		
+		this.getPainelBase().add(panelSaveConfiguracao);
+		//this.getLayout().setRows( (this.getLayout().getRows() + 1) );
 	}
 	
 	public GridLayout getLayout() {

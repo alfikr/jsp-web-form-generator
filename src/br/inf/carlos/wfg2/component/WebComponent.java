@@ -36,6 +36,26 @@ public abstract class WebComponent implements IWebComponent
 		this.field = field;
 	}
 	
+	/**
+	 * Cria uma variável EL identificadora para a classe para
+	 * ser utilizada dentro do código JSP.
+	 * 
+	 * @param Class c
+	 * 
+	 * @return String
+	 */
+	public static String createELVarName (Class c)
+	{
+		return c.getSimpleName().toLowerCase();
+	}
+	
+	/**
+	 * Retorna todos os atributos de uma classe.
+	 * 
+	 * @param Class c
+	 * 
+	 * @return List
+	 */
 	public static List<Field> getFields (Class c)
 	{
 		List<Field> fields = new ArrayList<Field>();

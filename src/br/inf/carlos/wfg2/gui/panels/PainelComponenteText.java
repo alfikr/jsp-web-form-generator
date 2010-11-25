@@ -11,10 +11,9 @@ import br.inf.carlos.wfg2.component.WebComponent;
 public class PainelComponenteText extends PainelComponente
 {
 	
-    public PainelComponenteText(Class clazz, Field field) {
+    public PainelComponenteText(Class clazz, Field field)
+    {
 		super(clazz, field);
-		
-		initComponents();
 	}
 
 	/** This method is called from within the constructor to
@@ -24,7 +23,7 @@ public class PainelComponenteText extends PainelComponente
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    protected void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         componentID = new javax.swing.JTextField();
@@ -167,6 +166,7 @@ public class PainelComponenteText extends PainelComponente
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
+    
 	@Override
 	public WebComponent getWebComponent() {
 		// TODO Auto-generated method stub
@@ -176,6 +176,18 @@ public class PainelComponenteText extends PainelComponente
 	@Override
 	public void setWebComponent(WebComponent component) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void carregaCamposPainel()
+	{
+		String el = WebComponent.createELVarName(this.getClazz());
+		
+		this.componentID.setText			(this.getField().getName().toLowerCase());
+		this.componentName.setText			(el + "." + this.getField().getName().toLowerCase());
+		this.componentCSSClassName.setText	("inputbox");
+		
 		
 	}
 
