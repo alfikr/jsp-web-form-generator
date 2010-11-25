@@ -11,6 +11,10 @@ import br.inf.carlos.wfg2.component.WebComponent;
 public interface IPainelComponente
 {
 	/**
+	 * Este método cria o preenchimento dos campos na inicialização dos paineis.
+	 */
+	public void carregaCamposPainel ();
+	/**
 	 * Retorna um objeto WebComponent a partir das informações
 	 * que o usuário preencheu na tela.
 	 * 

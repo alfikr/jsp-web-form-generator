@@ -30,12 +30,16 @@ public abstract class PainelComponente extends JPanel implements IPainelComponen
 		super();
 		this.clazz = clazz;
 		this.field = field;
+		this.initComponents();
+		this.carregaCamposPainel();
 	}
+	
+	protected abstract void initComponents();
 
 	public static PainelComponente createPainelComponenteInstance (Field field, Class clazz)
 	{
 		PainelComponente componente = null;
-		
+		System.out.println(field);
 		if(!field.getType().equals(List.class))
 		{
 			componente = new PainelComponenteText(clazz, field);
@@ -46,5 +50,21 @@ public abstract class PainelComponente extends JPanel implements IPainelComponen
 		}
 		
 		return componente;
+	}
+
+	public Class getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(Class clazz) {
+		this.clazz = clazz;
+	}
+
+	public Field getField() {
+		return field;
+	}
+
+	public void setField(Field field) {
+		this.field = field;
 	}
 }
