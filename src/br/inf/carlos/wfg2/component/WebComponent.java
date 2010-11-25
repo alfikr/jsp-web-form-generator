@@ -1,6 +1,8 @@
 package br.inf.carlos.wfg2.component;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,83 @@ public abstract class WebComponent implements IWebComponent
 		super();
 		this.clazz = clazz;
 		this.field = field;
+	}
+	
+	/**
+	 * Retorna o nome do atributo que será apresentado em cada option de um 
+	 * combobox HTML. Procura pela primeira String.
+	 * 
+	 * @param Class c
+	 * 
+	 * @return String
+	 */
+	public static String getDataListAttributeDisplayValue (Class c)
+	{
+		List<Field> fields = WebComponent.getFields(c);
+		
+		for (Field field : fields)
+		{
+			if(field.getGenericType().equals(String.class))
+			{
+				return field.getName();
+			}
+		}
+		
+		return "nenhumaString";
+	}
+	
+	/**
+	 * Retorna o nome do atributo que será o value de cada option de um 
+	 * combobox HTML. Procura naturalmente por 'id' ou 'idObjeto'.
+	 * 
+	 * @param Class c
+	 * 
+	 * @return String
+	 */
+	public static String getDataListAttributeValue (Class c)
+	{
+		List<Field> fields = WebComponent.getFields(c);
+		
+		// procurar por id ou idObjeto
+		for (Field field : fields)
+		{
+			if(field.getName().equals("id") || field.getName().equals("id" + c.getSimpleName()))
+			{
+				return field.getName();
+			}
+		}
+		
+		return "idNaoAchado";
+	}
+	
+	/**
+	 * Retorna o objeto do tipo genérico do atributo do tipo List.
+	 * 
+	 * @param Field field
+	 * 
+	 * @return Class
+	 */
+	public static Class getGenericListType (Field field)
+	{
+		Class c = null;
+		
+		if(field != null)
+		{
+			Type type = field.getGenericType();
+			
+			if(type instanceof ParameterizedType)
+			{
+			    ParameterizedType parameterizedType = (ParameterizedType) type;
+			    Type[] types = parameterizedType.getActualTypeArguments();
+			    
+			    for(Type arg : types)
+			    {
+			        c = (Class) arg;
+			    }
+			}
+		}
+		
+		return c;
 	}
 	
 	/**
