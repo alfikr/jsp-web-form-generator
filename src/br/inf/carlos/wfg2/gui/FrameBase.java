@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 
 import br.inf.carlos.wfg2.component.WebComponent;
@@ -32,7 +33,15 @@ public class FrameBase extends JFrame
 		this.layout 	= new GridLayout();
 		
 		this.getPainelBase().setLayout	(this.getLayout());
-		this.getContentPane().add		(this.getPainelBase());
+		
+		JScrollPane scrollPane = new JScrollPane(
+			this.painelBase,  
+			JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
+		);
+		
+		scrollPane.setViewportView	(this.painelBase);  
+		this.getContentPane().add	(scrollPane);
 		
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
