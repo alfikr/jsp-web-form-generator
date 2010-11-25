@@ -2,6 +2,9 @@ package br.inf.carlos.wfg2.gui.panels;
 
 import java.io.File;
 
+import br.inf.carlos.wfg2.gui.FrameBase;
+import br.inf.carlos.wfg2.gui.actions.ButtonProcessarListener;
+
 
 /**
  *
@@ -11,17 +14,13 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
 {
 	private Class clazz;
 	
-    public Class getClazz() {
-		return clazz;
-	}
-
-	public void setClazz(Class clazz) {
-		this.clazz = clazz;
-	}
-
-	public PainelComponenteSaveConfiguracao(Class clazz) {
+	private FrameBase frameBase;
+	
+	public PainelComponenteSaveConfiguracao(Class clazz, FrameBase frameBase)
+	{
 		super();
 		this.clazz = clazz;
+		this.frameBase = frameBase;
 		this.initComponents();
 		this.carregaCamposPainel();
 	}
@@ -112,7 +111,11 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
                     .addComponent(buttonProcessar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-    }// </editor-fold>//GEN-END:initComponents
+        
+        ButtonProcessarListener listener = new ButtonProcessarListener(this.getFrameBase());
+        
+        this.buttonProcessar.addActionListener(listener);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -125,4 +128,20 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
     private javax.swing.JTextField output;
     // End of variables declaration//GEN-END:variables
 
+    
+    public Class getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(Class clazz) {
+		this.clazz = clazz;
+	}
+
+	public FrameBase getFrameBase() {
+		return frameBase;
+	}
+
+	public void setFrameBase(FrameBase frameBase) {
+		this.frameBase = frameBase;
+	}
 }

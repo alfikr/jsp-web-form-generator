@@ -29,4 +29,6 @@ public interface IPainelComponente
 	 *  @param WebComponent component
 	 */
 	public void setWebComponent (WebComponent component);
+	
+	public boolean validatePainelFields ();
 }

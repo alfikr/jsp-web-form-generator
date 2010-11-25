@@ -1,12 +1,19 @@
 package br.inf.carlos.wfg2.gui.panels;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Insets;
 import java.lang.reflect.Field;
 import java.util.List;
 
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 import br.inf.carlos.wfg2.gui.FrameBase;
 import br.inf.carlos.wfg2.gui.interfaces.IPainelComponente;
+import br.inf.carlos.wfg2.gui.util.TextContextBorder;
 
 /**
  * Superclasse abstrata para definir e padronizar todos os formulários
@@ -37,6 +44,23 @@ public abstract class PainelComponente extends JPanel implements IPainelComponen
 		
 		this.initComponents();
 		this.carregaCamposPainel();
+	}
+	
+	public void paintBorder (JTextField text, Color color)
+	{
+		final Border defaultBorder = text.getBorder();
+	    Border mandatoryBorder = new LineBorder(color, 2)
+	    {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		    public Insets getBorderInsets(Component c)
+		    {
+	    		return defaultBorder.getBorderInsets(c);
+		    }
+	    };
+	    
+	    text.setBorder(new TextContextBorder(defaultBorder, mandatoryBorder));
 	}
 	
 	protected abstract void initComponents();
