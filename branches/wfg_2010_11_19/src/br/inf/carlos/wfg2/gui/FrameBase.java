@@ -1,6 +1,8 @@
 package br.inf.carlos.wfg2.gui;
 
 import java.awt.GridLayout;
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -23,14 +25,26 @@ public class FrameBase extends JFrame
 	private JPanel painelBase;
 	
 	private GridLayout layout;
+	
+	private String projectDirectory;
+	
+	private File projeto;
 
-	public FrameBase(Class clazz)
+	public FrameBase(Class clazz, String projectDirectory) throws IOException
 	{
 		super();
 		
-		this.clazz 		= clazz;
-		this.painelBase = new JPanel();
-		this.layout 	= new GridLayout();
+		this.clazz 				= clazz;
+		this.painelBase 		= new JPanel();
+		this.layout 			= new GridLayout();
+		
+		this.projectDirectory 	= projectDirectory;
+		this.projeto 			= new File(this.getProjectDirectory());
+		
+		if(!this.getProjeto().exists())
+		{
+			throw new IOException("O diretório do projeto [" + this.getProjectDirectory() + "] não existe.");
+		}
 		
 		this.getPainelBase().setLayout	(this.getLayout());
 		
@@ -59,7 +73,7 @@ public class FrameBase extends JFrame
 		this.getLayout().setColumns(1);
 		for (Field field : fields)
 		{
-			this.addComponent(PainelComponente.createPainelComponenteInstance(field, this.getClazz()));
+			this.addComponent		( PainelComponente.createPainelComponenteInstance(field, this.getClazz(), this) );
 			this.getLayout().setRows( (this.getLayout().getRows() + 1) );
 		}
 		
@@ -96,5 +110,17 @@ public class FrameBase extends JFrame
 
 	public void setPainelBase(JPanel painelBase) {
 		this.painelBase = painelBase;
+	}
+
+	public String getProjectDirectory() {
+		return projectDirectory;
+	}
+
+	public void setProjectDirectory(String projectDirectory) {
+		this.projectDirectory = projectDirectory;
+	}
+
+	public File getProjeto() {
+		return projeto;
 	}
 }
