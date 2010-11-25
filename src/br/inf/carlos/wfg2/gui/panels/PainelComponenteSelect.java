@@ -8,14 +8,12 @@ import br.inf.carlos.wfg2.component.WebComponent;
  *
  * @author carlos
  */
-public class PainelComponenteText extends PainelComponente
+public class PainelComponenteSelect extends PainelComponente
 {
-	
-    public PainelComponenteText(Class clazz, Field field)
-    {
+    public PainelComponenteSelect(Class clazz, Field field) {
 		super(clazz, field);
+		// TODO Auto-generated constructor stub
 	}
-
 	/** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -31,16 +29,15 @@ public class PainelComponenteText extends PainelComponente
         componentName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         componentCSSClassName = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        componentSize = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        componentMaxLength = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        componentJavascriptMask = new javax.swing.JTextField();
-        componentReadOnly = new javax.swing.JCheckBox();
-        componentDisabled = new javax.swing.JCheckBox();
+        disabledCheckbox = new javax.swing.JCheckBox();
         jLabel7 = new javax.swing.JLabel();
+        componentDataList = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         componentValue = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        componentDataListValue = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        componentDataListDisplayValue = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Propriedades do atributo: " + this.getField().getName()));
 
@@ -52,21 +49,19 @@ public class PainelComponenteText extends PainelComponente
 
         jLabel3.setText("CSS");
 
-        jLabel4.setText("Size:");
+        disabledCheckbox.setText("Disabled");
 
-        componentSize.setText("2");
+        jLabel7.setText("Data List:");
 
-        jLabel5.setText("Length:");
+        jLabel4.setText("Value:");
 
-        componentMaxLength.setText("2");
+        jLabel5.setText("Value attr.:");
 
-        jLabel6.setText("JS Mask:");
+        componentDataListValue.setText("id");
 
-        componentReadOnly.setText("ReadOnly");
+        jLabel6.setText("Display attr.:");
 
-        componentDisabled.setText("Disabled");
-
-        jLabel7.setText("Value");
+        componentDataListDisplayValue.setText("nome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -88,45 +83,41 @@ public class PainelComponenteText extends PainelComponente
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(componentValue, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(componentSize)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(componentMaxLength, 0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel5))
+                    .addComponent(componentDataList, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(componentDataListValue, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(componentDataListDisplayValue, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(componentJavascriptMask, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(componentReadOnly, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(componentDisabled))
-                    .addComponent(jLabel6))
+                        .addComponent(componentValue, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(disabledCheckbox))
+                    .addComponent(jLabel4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(componentJavascriptMask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(componentReadOnly)
-                            .addComponent(componentDisabled)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(componentSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(componentMaxLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(componentValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(disabledCheckbox)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -134,11 +125,15 @@ public class PainelComponenteText extends PainelComponente
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(componentCSSClassName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(componentValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(componentDataList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(componentDataListValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(componentDataListDisplayValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -150,14 +145,13 @@ public class PainelComponenteText extends PainelComponente
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField componentCSSClassName;
-    private javax.swing.JCheckBox componentDisabled;
+    private javax.swing.JTextField componentDataList;
+    private javax.swing.JTextField componentDataListDisplayValue;
+    private javax.swing.JTextField componentDataListValue;
     private javax.swing.JTextField componentID;
-    private javax.swing.JTextField componentJavascriptMask;
-    private javax.swing.JTextField componentMaxLength;
     private javax.swing.JTextField componentName;
-    private javax.swing.JCheckBox componentReadOnly;
-    private javax.swing.JTextField componentSize;
     private javax.swing.JTextField componentValue;
+    private javax.swing.JCheckBox disabledCheckbox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -166,28 +160,20 @@ public class PainelComponenteText extends PainelComponente
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
-    
+	
+	@Override
+	public void carregaCamposPainel() {
+		// TODO Auto-generated method stub
+		
+	}
 	@Override
 	public WebComponent getWebComponent() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	@Override
 	public void setWebComponent(WebComponent component) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void carregaCamposPainel()
-	{
-		String el = WebComponent.createELVarName(this.getClazz());
-		
-		this.componentID.setText			(this.getField().getName().toLowerCase());
-		this.componentName.setText			(el + "." + this.getField().getName().toLowerCase());
-		this.componentCSSClassName.setText	("inputbox");
-		
 		
 	}
 

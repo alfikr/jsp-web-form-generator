@@ -46,7 +46,7 @@ public abstract class PainelComponente extends JPanel implements IPainelComponen
 		}
 		else
 		{
-			componente = new PainelComponenteText(clazz, field);
+			componente = new PainelComponenteSelect(clazz, field);
 		}
 		
 		return componente;
