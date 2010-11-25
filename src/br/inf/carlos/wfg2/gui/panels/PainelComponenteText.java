@@ -3,6 +3,7 @@ package br.inf.carlos.wfg2.gui.panels;
 import java.lang.reflect.Field;
 
 import br.inf.carlos.wfg2.component.WebComponent;
+import br.inf.carlos.wfg2.gui.FrameBase;
 
 /**
  *
@@ -11,9 +12,9 @@ import br.inf.carlos.wfg2.component.WebComponent;
 public class PainelComponenteText extends PainelComponente
 {
 	
-    public PainelComponenteText(Class clazz, Field field)
+    public PainelComponenteText(Class clazz, Field field, FrameBase frameBase)
     {
-		super(clazz, field);
+		super(clazz, field, frameBase);
 	}
 
 	/** This method is called from within the constructor to

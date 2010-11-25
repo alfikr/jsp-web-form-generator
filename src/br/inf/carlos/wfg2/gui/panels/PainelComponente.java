@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import br.inf.carlos.wfg2.gui.FrameBase;
 import br.inf.carlos.wfg2.gui.interfaces.IPainelComponente;
 
 /**
@@ -25,28 +26,32 @@ public abstract class PainelComponente extends JPanel implements IPainelComponen
 	
 	private Field field;
 	
-	public PainelComponente(Class clazz, Field field)
+	private FrameBase frameBase;
+	
+	public PainelComponente(Class clazz, Field field, FrameBase frameBase)
 	{
 		super();
-		this.clazz = clazz;
-		this.field = field;
+		this.clazz 		= clazz;
+		this.field 		= field;
+		this.frameBase 	= frameBase;
+		
 		this.initComponents();
 		this.carregaCamposPainel();
 	}
 	
 	protected abstract void initComponents();
 
-	public static PainelComponente createPainelComponenteInstance (Field field, Class clazz)
+	public static PainelComponente createPainelComponenteInstance (Field field, Class clazz, FrameBase frameBase)
 	{
 		PainelComponente componente = null;
 		
 		if(!field.getType().equals(List.class))
 		{
-			componente = new PainelComponenteText(clazz, field);
+			componente = new PainelComponenteText(clazz, field, frameBase);
 		}
 		else
 		{
-			componente = new PainelComponenteSelect(clazz, field);
+			componente = new PainelComponenteSelect(clazz, field, frameBase);
 		}
 		
 		return componente;
@@ -66,5 +71,9 @@ public abstract class PainelComponente extends JPanel implements IPainelComponen
 
 	public void setField(Field field) {
 		this.field = field;
+	}
+
+	public FrameBase getFrameBase() {
+		return frameBase;
 	}
 }
