@@ -1,15 +1,47 @@
 package br.inf.carlos.wfg2.gui.panels;
 
+import java.io.File;
+
+
 /**
  *
  * @author carlos
  */
-public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel {
+public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
+{
+	private Class clazz;
+	
+    public Class getClazz() {
+		return clazz;
+	}
 
-    /** Creates new form PainelComponenteText */
-    public PainelComponenteSaveConfiguracao() {
-        initComponents();
-    }
+	public void setClazz(Class clazz) {
+		this.clazz = clazz;
+	}
+
+	public PainelComponenteSaveConfiguracao(Class clazz) {
+		super();
+		this.clazz = clazz;
+		this.initComponents();
+		this.carregaCamposPainel();
+	}
+	
+	private void carregaCamposPainel()
+	{
+		String controller = this.getClazz().getSimpleName() + "Controller";
+		this.controllerName.setText(controller);
+		
+		String classe = this.getClazz().getSimpleName();
+		
+		String views = "{\"/" + classe + "/\", \"/" + classe + "\"}";
+		
+		this.defaultView.setText(views.toLowerCase());
+		
+		String saida = "WebContent" + File.separator + "WEB-INF" + File.separator + "jsp" + File.separator + classe.toLowerCase() + File.separator + classe.toLowerCase() + ".jsp";
+		
+		this.output.setText(saida);
+		
+	}
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -18,7 +50,8 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         buttonProcessar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -36,11 +69,7 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel {
 
         jLabel2.setText("Output:");
 
-        output.setText("WebContent/WEB-INF/jsp/*.jsp");
-
         jLabel3.setText("Default view:");
-
-        defaultView.setText("{\"/cliente/\", \"/cliente\"}");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
