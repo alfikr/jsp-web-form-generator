@@ -42,11 +42,11 @@ public class PainelComponenteText extends PainelComponente
         jLabel7 = new javax.swing.JLabel();
         componentValue = new javax.swing.JTextField();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Propriedades do atributo: " + this.getField().getName()));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(
+        	"Propriedades do atributo: " + this.getField().getName() + " - " + this.getField().getType().getSimpleName())
+        );
 
         jLabel1.setText("ID");
-
-        componentID.setText(" ");
 
         jLabel2.setText("Name:");
 
@@ -54,11 +54,11 @@ public class PainelComponenteText extends PainelComponente
 
         jLabel4.setText("Size:");
 
-        componentSize.setText("2");
+        componentSize.setText("50");
 
         jLabel5.setText("Length:");
 
-        componentMaxLength.setText("2");
+        componentMaxLength.setText("50");
 
         jLabel6.setText("JS Mask:");
 
@@ -187,7 +187,7 @@ public class PainelComponenteText extends PainelComponente
 		this.componentID.setText			(this.getField().getName().toLowerCase());
 		this.componentName.setText			(el + "." + this.getField().getName().toLowerCase());
 		this.componentCSSClassName.setText	("inputbox");
-		
+		this.componentValue.setText			("${" + el + "." + this.getField().getName().toLowerCase() + "}");
 		
 	}
 

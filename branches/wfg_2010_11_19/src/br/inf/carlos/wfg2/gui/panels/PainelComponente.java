@@ -39,7 +39,7 @@ public abstract class PainelComponente extends JPanel implements IPainelComponen
 	public static PainelComponente createPainelComponenteInstance (Field field, Class clazz)
 	{
 		PainelComponente componente = null;
-		System.out.println(field);
+		
 		if(!field.getType().equals(List.class))
 		{
 			componente = new PainelComponenteText(clazz, field);

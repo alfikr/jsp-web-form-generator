@@ -39,29 +39,22 @@ public class PainelComponenteSelect extends PainelComponente
         jLabel6 = new javax.swing.JLabel();
         componentDataListDisplayValue = new javax.swing.JTextField();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Propriedades do atributo: " + this.getField().getName()));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(
+        	"Propriedades do atributo: " + this.getField().getName() + " - " + this.getField().getType().getSimpleName())
+        );
 
         jLabel1.setText("ID");
-
-        componentID.setText(" ");
-
         jLabel2.setText("Name:");
-
         jLabel3.setText("CSS");
-
+        
+        jLabel7.setText("Data List:");
+        jLabel4.setText("Value:");
+        jLabel5.setText("Value attr.:");
+        
+        jLabel6.setText("Display attr.:");
+        
         disabledCheckbox.setText("Disabled");
 
-        jLabel7.setText("Data List:");
-
-        jLabel4.setText("Value:");
-
-        jLabel5.setText("Value attr.:");
-
-        componentDataListValue.setText("id");
-
-        jLabel6.setText("Display attr.:");
-
-        componentDataListDisplayValue.setText("nome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -162,9 +155,18 @@ public class PainelComponenteSelect extends PainelComponente
     // End of variables declaration//GEN-END:variables
 	
 	@Override
-	public void carregaCamposPainel() {
-		// TODO Auto-generated method stub
+	public void carregaCamposPainel()
+	{
+		Class cl = WebComponent.getGenericListType(this.getField());
 		
+		String el = WebComponent.createELVarName(this.getClazz());
+		
+		this.componentID.setText			(this.getField().getName().toLowerCase());
+		this.componentName.setText			(el + "." + this.getField().getName().toLowerCase());
+		this.componentCSSClassName.setText	("inputbox");
+		this.componentDataList.setText		(this.getField().getName().toLowerCase());
+		this.componentDataListValue.setText	(WebComponent.getDataListAttributeValue(this.getClazz()));
+		this.componentDataListDisplayValue.setText	(WebComponent.getDataListAttributeDisplayValue(this.getClazz()));
 	}
 	@Override
 	public WebComponent getWebComponent() {
