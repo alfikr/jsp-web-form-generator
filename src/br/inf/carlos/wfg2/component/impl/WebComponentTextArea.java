@@ -18,7 +18,7 @@ public class WebComponentTextArea extends WebComponent
 	@Override
 	public String renderComponent()
 	{
-		return null;
+		return "";
 	}
 
 	public int getCols() {

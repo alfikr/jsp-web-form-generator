@@ -34,11 +34,8 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
 		
 		String views = "{\"/" + classe + "/\", \"/" + classe + "\"}";
 		
-		this.defaultView.setText(views.toLowerCase());
-		
-		String saida = "WebContent" + File.separator + "WEB-INF" + File.separator + "jsp" + File.separator + classe.toLowerCase() + File.separator + classe.toLowerCase() + ".jsp";
-		
-		this.output.setText(saida);
+		this.defaultView.setText	(views.toLowerCase());
+		this.outputPackage.setText	("br.inf.carlos.teste.controllers");
 		
 	}
 
@@ -56,7 +53,7 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
         jLabel1 = new javax.swing.JLabel();
         controllerName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        output = new javax.swing.JTextField();
+        outputPackage = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         defaultView = new javax.swing.JTextField();
 
@@ -66,7 +63,7 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
 
         jLabel1.setText("Controller:");
 
-        jLabel2.setText("Output:");
+        jLabel2.setText("Pacote do controlador:");
 
         jLabel3.setText("Default view:");
 
@@ -89,7 +86,7 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(outputPackage, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonProcessar, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)) //129
                     .addComponent(jLabel2))
@@ -106,7 +103,7 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(controllerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(outputPackage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(defaultView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonProcessar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -125,7 +122,7 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField output;
+    private javax.swing.JTextField outputPackage;
     // End of variables declaration//GEN-END:variables
 
     
@@ -143,5 +140,21 @@ public class PainelComponenteSaveConfiguracao extends javax.swing.JPanel
 
 	public void setFrameBase(FrameBase frameBase) {
 		this.frameBase = frameBase;
+	}
+
+	public javax.swing.JButton getButtonProcessar() {
+		return buttonProcessar;
+	}
+
+	public javax.swing.JTextField getControllerName() {
+		return controllerName;
+	}
+
+	public javax.swing.JTextField getDefaultView() {
+		return defaultView;
+	}
+
+	public javax.swing.JTextField getOutputPackage() {
+		return outputPackage;
 	}
 }
