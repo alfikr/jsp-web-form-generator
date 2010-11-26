@@ -3,6 +3,8 @@ package br.inf.carlos.wfg2.file;
 import java.io.File;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import br.inf.carlos.wfg2.component.WebClass;
 import br.inf.carlos.wfg2.exceptions.DefaultApplicationException;
 import br.inf.carlos.wfg2.exceptions.WebComponentEmptyException;
@@ -42,9 +44,16 @@ public class RenderHTMLApplication
 				
 				
 				ControllerHelper helper = new ControllerHelper(this.getWebClass());
-				System.out.println("Controller: " + this.getWebClass().getControllerClassName());
+				
 				try {
-					helper.createClassController();
+					if(helper.createClassController())
+					{
+						JOptionPane.showMessageDialog(null, "Controlador criado com sucesso");
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "Erro ao criar o Controlador");
+					}
 				} catch (DefaultApplicationException ee) {
 					ee.printStackTrace();
 				}
