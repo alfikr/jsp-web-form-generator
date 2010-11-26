@@ -32,6 +32,8 @@ public class FrameBase extends JFrame
 	private File projeto;
 	
 	private WebClass webClass;
+	
+	private JPanel panelSaveConfiguracao;
 
 	public FrameBase(Class clazz, String projectDirectory) throws IOException
 	{
@@ -83,12 +85,20 @@ public class FrameBase extends JFrame
 			this.getLayout().setRows( (this.getLayout().getRows() + 1) );
 		}
 		
-		JPanel panelSaveConfiguracao = new PainelComponenteSaveConfiguracao(this.getClazz(), this);
+		this.panelSaveConfiguracao = new PainelComponenteSaveConfiguracao(this.getClazz(), this);
 		
-		this.getPainelBase().add(panelSaveConfiguracao);
+		this.getPainelBase().add(this.panelSaveConfiguracao);
 		//this.getLayout().setRows( (this.getLayout().getRows() + 1) );
 	}
 	
+	public JPanel getPanelSaveConfiguracao() {
+		return panelSaveConfiguracao;
+	}
+
+	public void setPanelSaveConfiguracao(JPanel panelSaveConfiguracao) {
+		this.panelSaveConfiguracao = panelSaveConfiguracao;
+	}
+
 	public GridLayout getLayout() {
 		return layout;
 	}

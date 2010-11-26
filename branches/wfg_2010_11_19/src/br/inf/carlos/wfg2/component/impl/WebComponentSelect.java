@@ -20,7 +20,7 @@ public class WebComponentSelect extends WebComponent
 	@Override
 	public String renderComponent()
 	{
-		return null;
+		return "";
 	}
 
 	public String getDataList() {

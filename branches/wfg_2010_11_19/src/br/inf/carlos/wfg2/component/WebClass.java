@@ -11,7 +11,7 @@ public class WebClass
 	
 	private String defaultViews;
 	
-	private String outputDirectory;
+	private String outputPackage;
 	
 	private List<WebComponent> components;
 
@@ -52,11 +52,13 @@ public class WebClass
 		this.defaultViews = defaultViews;
 	}
 
-	public String getOutputDirectory() {
-		return outputDirectory;
+
+	public String getOutputPackage() {
+		return outputPackage;
 	}
 
-	public void setOutputDirectory(String outputDirectory) {
-		this.outputDirectory = outputDirectory;
+
+	public void setOutputPackage(String outputPackage) {
+		this.outputPackage = outputPackage;
 	}
 }
