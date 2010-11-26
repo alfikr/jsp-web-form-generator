@@ -71,7 +71,10 @@ public class ControllerHelper
 			);
 		}
 		
-		String out = this.getWebClass().getOutputPackage().replaceAll(".", File.separator);
+		
+		String out = this.getWebClass().getOutputPackage().replace(".", File.separator);
+		
+		System.out.println("." + File.separator + "src" + File.separator + out);
 		
 		File pkg = new File("." + File.separator + "src" + File.separator + out);
 		
@@ -90,6 +93,8 @@ public class ControllerHelper
 				output.write(classContent.getBytes());
 				output.flush();
 				output.close();
+				
+				return true;
 			}
 			else
 			{
@@ -100,8 +105,6 @@ public class ControllerHelper
 		{
 			throw new IOException("Erro ao criar a estrutura dos pacotes dos controladores.");
 		}
-		
-		return false;
 	}
 	
 	public WebClass getWebClass() {
