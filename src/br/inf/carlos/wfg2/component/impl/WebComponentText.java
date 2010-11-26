@@ -6,7 +6,10 @@ import br.inf.carlos.wfg2.component.WebComponent;
 
 public class WebComponentText extends WebComponent
 {
-
+	private int componentSize;
+	
+	private int componentMaxLength;
+	
 	public WebComponentText(Class clazz, Field field)
 	{
 		super(clazz, field);
@@ -15,7 +18,47 @@ public class WebComponentText extends WebComponent
 	@Override
 	public String renderComponent()
 	{
-		return null;
+		String html = "";
+		String component = "";
+		
+		component += "							<input type='text' class='" + this.getComponentCSSClassName() + "' ";
+		component += " size='" + this.getComponentSize() + "' ";
+		component += " id='" + this.getComponentID() + "' name='" + this.getComponentName() + "' ";
+		
+		if(this.isComponentDisabled())
+		{
+			component += " disabled='disabled' ";
+		}
+		
+		if(this.isComponentReadOnly())
+		{
+			component += " readOnly='readOnly' ";
+		}
+		
+		component += " maxlength='" + this.getComponentMaxLength() + "' />\n";
+		
+		html += "				 <label>\n";
+		//html += "							" + this.getComponentLabel() + ": \n";
+		html += "							<br/>\n";
+		html += component;
+		html += "						</label>\n";
+		
+		return html;
 	}
 
+	public int getComponentSize() {
+		return componentSize;
+	}
+
+	public void setComponentSize(int componentSize) {
+		this.componentSize = componentSize;
+	}
+
+	public int getComponentMaxLength() {
+		return componentMaxLength;
+	}
+
+	public void setComponentMaxLength(int componentMaxLength) {
+		this.componentMaxLength = componentMaxLength;
+	}
 }

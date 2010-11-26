@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 
+import br.inf.carlos.wfg2.component.WebClass;
 import br.inf.carlos.wfg2.component.WebComponent;
 import br.inf.carlos.wfg2.gui.panels.PainelComponente;
 import br.inf.carlos.wfg2.gui.panels.PainelComponenteSaveConfiguracao;
@@ -29,17 +30,22 @@ public class FrameBase extends JFrame
 	private String projectDirectory;
 	
 	private File projeto;
+	
+	private WebClass webClass;
 
 	public FrameBase(Class clazz, String projectDirectory) throws IOException
 	{
 		super();
 		
 		this.clazz 				= clazz;
+		this.webClass			= new WebClass();
 		this.painelBase 		= new JPanel();
 		this.layout 			= new GridLayout();
 		
 		this.projectDirectory 	= projectDirectory;
 		this.projeto 			= new File(this.getProjectDirectory());
+		
+		this.getWebClass().setClazz(this.getClazz());
 		
 		if(!this.getProjeto().exists())
 		{
@@ -122,5 +128,13 @@ public class FrameBase extends JFrame
 
 	public File getProjeto() {
 		return projeto;
+	}
+
+	public WebClass getWebClass() {
+		return webClass;
+	}
+
+	public void setWebClass(WebClass webClass) {
+		this.webClass = webClass;
 	}
 }
