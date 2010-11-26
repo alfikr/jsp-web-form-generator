@@ -183,7 +183,7 @@ public class PainelComponenteSelect extends PainelComponente
 	@Override
 	public boolean validatePainelFields() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
