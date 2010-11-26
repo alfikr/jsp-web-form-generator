@@ -1,6 +1,5 @@
 package br.inf.carlos.wfg2.gui.panels;
 
-import java.awt.Color;
 import java.lang.reflect.Field;
 
 import br.inf.carlos.wfg2.component.WebComponent;
@@ -200,12 +199,33 @@ public class PainelComponenteText extends PainelComponente
 		
 		if(this.componentID.getText().isEmpty())
 		{
-			this.componentID.getBorder();
-			
 			valid = false;
 		}
-		System.out.println("passando aqui....");
-		this.paintBorder(this.componentID, Color.RED);
+		if(this.componentName.getText().isEmpty())
+		{
+			valid = false;
+		}
+		System.out.println(valid);
+		if(this.componentCSSClassName.getText().isEmpty())
+		{
+			valid = false;
+		}
+		if(!this.componentSize.getText().isEmpty())
+		{
+			try {
+				Integer.parseInt(this.componentSize.getText());
+			} catch (NumberFormatException e) {
+				valid = false;
+			}
+		}
+		if(!this.componentMaxLength.getText().isEmpty())
+		{
+			try {
+				Integer.parseInt(this.componentMaxLength.getText());
+			} catch (NumberFormatException e) {
+				valid = false;
+			}
+		}
 		
 		return valid;
 	}
