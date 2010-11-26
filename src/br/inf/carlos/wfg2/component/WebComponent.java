@@ -1,5 +1,8 @@
 package br.inf.carlos.wfg2.component;
 
+import java.io.File;
+import java.io.FileFilter;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -36,6 +39,50 @@ public abstract class WebComponent implements IWebComponent
 		super();
 		this.clazz = clazz;
 		this.field = field;
+	}
+	
+	public static List<Class> getPackageClasses (String pkg) throws IOException
+	{
+		String s = "." + File.separator + "src" + File.separator + pkg.replace('.', File.separatorChar);
+		File pacote = new File(s);
+		
+		if(!pacote.exists())
+		{
+			throw new IOException("O pacote informado não existe");
+		}
+		else
+		{
+			List<Class> classes = new ArrayList<Class>();
+			
+			if(pacote.exists() && pacote.isDirectory())
+			{
+				File[] arquivos = pacote.listFiles(new FileFilter() {
+					
+					@Override
+					public boolean accept(File file)
+					{
+						return file.isFile() && file.getName().endsWith(".java");
+					}
+				});
+				
+				for (File file : arquivos)
+				{
+					try
+					{
+						Class cl = Class.forName(pkg + "." + file.getName().replaceAll(".java", ""));
+						
+						if(cl != null)
+						{
+							classes.add(cl);
+						}
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			return classes;
+		}
 	}
 	
 	/**
