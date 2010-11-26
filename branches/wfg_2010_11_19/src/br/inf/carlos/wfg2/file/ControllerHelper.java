@@ -21,7 +21,7 @@ public class ControllerHelper
 	{
 		String content = "";
 		
-		content += "package " + this.getWebClass().getOutputPackage() + ";\n";
+		content += "package " + this.getWebClass().getOutputPackage() + ";\n\n";
 		
 		content += "import br.com.caelum.vraptor.Path;\n";
 		content += "import br.com.caelum.vraptor.Resource;\n";
@@ -39,9 +39,9 @@ public class ControllerHelper
 		content += "\n";
 		content += "\n";
 		content += "\t}";
-		content += "\n";
+		content += "\n\n";
 		
-		content += "\t@Path(" + this.getWebClass().getDefaultViews() + ")";
+		content += "\t@Path(" + this.getWebClass().getDefaultViews() + ")\n";
 		content += "\tpublic void home ()";
 		content += "\n";
 		content += "\t{";
