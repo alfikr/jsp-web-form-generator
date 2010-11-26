@@ -29,12 +29,21 @@ public class ButtonProcessarListener implements ActionListener
 			if(component instanceof PainelComponente)
 			{
 				valid = ((IPainelComponente) component).validatePainelFields();
+				
+				if(valid)
+				{
+					this.getFrameBase().getWebClass().getComponents().add(((IPainelComponente) component).getWebComponent());
+				}
 			}
 		}
 		
 		if(!valid)
 		{
 			JOptionPane.showMessageDialog(this.getFrameBase(), "Existem campos que precisam ser preenchidos");
+		}
+		else
+		{
+			
 		}
 	}
 
