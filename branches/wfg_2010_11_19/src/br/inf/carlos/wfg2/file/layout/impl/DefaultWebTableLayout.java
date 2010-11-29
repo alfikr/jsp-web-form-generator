@@ -2,15 +2,17 @@ package br.inf.carlos.wfg2.file.layout.impl;
 
 import java.util.List;
 
+import br.inf.carlos.wfg2.component.WebClass;
 import br.inf.carlos.wfg2.component.WebComponent;
 import br.inf.carlos.wfg2.exceptions.WebComponentEmptyException;
 import br.inf.carlos.wfg2.file.layout.WebLayout;
 
 public class DefaultWebTableLayout extends WebLayout
 {
-	public DefaultWebTableLayout(Class clazz, List<WebComponent> components) throws WebComponentEmptyException
+
+	public DefaultWebTableLayout(WebClass webClass, List<WebComponent> components) throws WebComponentEmptyException
 	{
-		super(clazz, components);
+		super(webClass, components);
 	}
 
 	@Override
