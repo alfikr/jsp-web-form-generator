@@ -37,7 +37,7 @@ public abstract class WebLayout implements IWebLayout
 		String fileName = this.getWebClass().getClazz().getSimpleName();
 		
 		String webDir = 
-			"." + File.separator + "WebContent" + File.separator + "WEB-INF" + File.separator + "jsp" + File.separator + fileName;
+			"." + File.separator + "WebContent" + File.separator + "WEB-INF" + File.separator + "jsp" + File.separator + fileName.toLowerCase();
 		
 		File diretorio = new File(webDir);
 		
@@ -54,7 +54,7 @@ public abstract class WebLayout implements IWebLayout
 		{
 			String jspFile = 
 				"." + File.separator + "WebContent" + File.separator + "WEB-INF" + File.separator + "jsp" + 
-				File.separator + fileName + File.separator + "home.jsp";
+				File.separator + fileName.toLowerCase() + File.separator + "home.jsp";
 			
 			File jsp = new File(jspFile);
 			
