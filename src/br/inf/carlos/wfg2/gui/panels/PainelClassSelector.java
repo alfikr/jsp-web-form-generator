@@ -2,6 +2,8 @@ package br.inf.carlos.wfg2.gui.panels;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
 import javax.swing.GroupLayout;
@@ -89,6 +91,64 @@ public class PainelClassSelector extends JPanel
         
         this.button.addActionListener(new ButtonCarregaFrameBase(this));
         
+        final PainelClassSelector p = this;
+        
+        this.classes.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount() == 2)
+				{
+					ButtonCarregaFrameBase b = new ButtonCarregaFrameBase(p);
+					b.actionPerformed(null);
+				}
+			}
+		});
+        
+        this.classes.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e)
+			{
+				if(e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					if(!classes.getSelectedValue().equals(null))
+					{
+						ButtonCarregaFrameBase b = new ButtonCarregaFrameBase(p);
+						b.actionPerformed(null);
+					}
+				}
+			}
+		});
+        
         this.pacoteBeans.addKeyListener(new KeyListener() {
 			
 			@Override
@@ -107,8 +167,9 @@ public class PainelClassSelector extends JPanel
 				if(e.getKeyCode() == KeyEvent.VK_ENTER)
 				{
 					try {
-						classes.setModel(new DefaultClassListModel(WebComponent.getPackageClasses(pacoteBeans.getText())));
-						button.setEnabled(true);
+						classes.setModel	(new DefaultClassListModel(WebComponent.getPackageClasses(pacoteBeans.getText())));
+						button.setEnabled	(true);
+						classes.requestFocus();
 					} catch (IOException ee) {
 						JOptionPane.showMessageDialog(null, ee.getMessage());
 						button.setEnabled(false);
