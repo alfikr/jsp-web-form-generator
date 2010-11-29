@@ -7,7 +7,6 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import br.inf.carlos.teste.beans.Cliente;
 import br.inf.carlos.wfg2.gui.FrameBase;
 import br.inf.carlos.wfg2.gui.panels.PainelClassSelector;
 
