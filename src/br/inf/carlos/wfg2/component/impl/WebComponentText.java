@@ -35,7 +35,7 @@ public class WebComponentText extends WebComponent
 		component += " maxlength='" + this.getComponentMaxLength() + "' />\n";
 		
 		html += "				 <label>\n";
-		//html += "							" + this.getComponentLabel() + ": \n";
+		html += "							" + this.getComponentLabel() + ": \n";
 		html += "							<br/>\n";
 		html += component;
 		html += "						</label>\n";

@@ -33,6 +33,8 @@ public abstract class WebComponent implements IWebComponent
 	private boolean componentReadOnly;
 	
 	private String componentValue;
+	
+	private String componentLabel;
 
 	public WebComponent(Class clazz, Field field)
 	{
@@ -271,6 +273,14 @@ public abstract class WebComponent implements IWebComponent
 
 	public void setComponentValue(String componentValue) {
 		this.componentValue = componentValue;
+	}
+
+	public String getComponentLabel() {
+		return componentLabel;
+	}
+
+	public void setComponentLabel(String componentLabel) {
+		this.componentLabel = componentLabel;
 	}
 
 	@Override
