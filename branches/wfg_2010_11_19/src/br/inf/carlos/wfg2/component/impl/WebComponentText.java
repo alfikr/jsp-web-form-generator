@@ -10,11 +10,8 @@ public class WebComponentText extends WebComponent
 	
 	private int componentMaxLength;
 	
-	public WebComponentText(Class clazz, Field field)
-	{
-		super(clazz, field);
-	}
-
+	private String componentJavascriptMask;
+	
 	@Override
 	public String renderComponent()
 	{
@@ -60,5 +57,17 @@ public class WebComponentText extends WebComponent
 
 	public void setComponentMaxLength(int componentMaxLength) {
 		this.componentMaxLength = componentMaxLength;
+	}
+	public String getComponentJavascriptMask() {
+		return componentJavascriptMask;
+	}
+
+	public void setComponentJavascriptMask(String componentJavascriptMask) {
+		this.componentJavascriptMask = componentJavascriptMask;
+	}
+
+	public WebComponentText(Class clazz, Field field)
+	{
+		super(clazz, field);
 	}
 }
