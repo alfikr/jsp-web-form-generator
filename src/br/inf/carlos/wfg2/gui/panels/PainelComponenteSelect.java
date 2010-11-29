@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 
 import br.inf.carlos.wfg2.component.WebComponent;
+import br.inf.carlos.wfg2.component.impl.WebComponentSelect;
 import br.inf.carlos.wfg2.gui.FrameBase;
 import br.inf.carlos.wfg2.gui.models.FieldModelComboBoxPadrao;
 
@@ -184,9 +185,21 @@ public class PainelComponenteSelect extends PainelComponente
 	}
 
 	@Override
-	public WebComponent getWebComponent() {
-		// TODO Auto-generated method stub
-		return null;
+	public WebComponent getWebComponent()
+	{
+		WebComponent component = new WebComponentSelect(this.getClazz(), this.getField());
+		
+		component.setComponentID			(this.componentID.getText());
+		component.setComponentName			(this.componentName.getText());
+		component.setComponentCSSClassName	(this.componentCSSClassName.getText());
+		component.setComponentDisabled		(this.disabledCheckbox.isSelected());
+		component.setComponentValue			(this.componentValue.getText());
+		
+		((WebComponentSelect) component).setDataList			(this.componentDataList.getText());
+		((WebComponentSelect) component).setDataListValue		(this.componentDataListValue.getSelectedItem().toString());
+		((WebComponentSelect) component).setDataListDisplayValue(this.componentDataListDisplayValue.getSelectedItem().toString());
+		
+		return component;
 	}
 
 	@Override

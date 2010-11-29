@@ -42,6 +42,7 @@ public class RenderHTMLApplication
 				
 				String html = layout.createHTML();
 				
+				System.out.println("CRIANDO HTML...");
 				
 				ControllerHelper helper = new ControllerHelper(this.getWebClass());
 				
