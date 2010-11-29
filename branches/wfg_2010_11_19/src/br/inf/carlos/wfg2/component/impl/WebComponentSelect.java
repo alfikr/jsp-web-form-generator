@@ -39,7 +39,7 @@ public class WebComponentSelect extends WebComponent
 		component += "								</c:forEach>\n";
 		
 		html += "				 <label>\n";
-		html += "							" + this.getComponentName()+ ": \n";
+		html += "							" + this.getComponentLabel() + ": \n";
 		html += "							<br/>\n";
 		html += component;
 		html += "						</select>\n";
