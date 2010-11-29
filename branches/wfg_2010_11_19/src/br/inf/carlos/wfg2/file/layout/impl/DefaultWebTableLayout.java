@@ -24,14 +24,15 @@ public class DefaultWebTableLayout extends WebLayout
 		html += "\t\t<form>\n";
 		html += "\t\t\t<table width='100%' border='1'>\n";
 		
-//		for (WebComponent component : this.getComponents())
-//		{
-//			html += "\t\t\t\t<tr>\n";
-//			html += "\t\t\t\t\t<td>\n";
-//			html += component.renderComponent();
-//			html += "\t\t\t\t\t</td>\n";
-//			html += "\t\t\t\t</tr>\n";
-//		}
+		for (WebComponent component : this.getComponents())
+		{
+			System.out.println("Renderizando componente....");
+			html += "\t\t\t\t<tr>\n";
+			html += "\t\t\t\t\t<td>\n";
+			html += component.renderComponent();
+			html += "\t\t\t\t\t</td>\n";
+			html += "\t\t\t\t</tr>\n";
+		}
 		
 		html += "\t\t\t</table>\n";
 		html += "\t\t</form>\n";

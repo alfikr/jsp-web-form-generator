@@ -11,8 +11,9 @@ import br.inf.carlos.wfg2.gui.FrameBase;
  */
 public class PainelComponenteText extends PainelComponente
 {
-	
-    public PainelComponenteText(Class clazz, Field field, FrameBase frameBase)
+	private static final long serialVersionUID = 1L;
+
+	public PainelComponenteText(Class clazz, Field field, FrameBase frameBase)
     {
 		super(clazz, field, frameBase);
 	}
@@ -205,7 +206,7 @@ public class PainelComponenteText extends PainelComponente
 		{
 			valid = false;
 		}
-		System.out.println(valid);
+		
 		if(this.componentCSSClassName.getText().isEmpty())
 		{
 			valid = false;
