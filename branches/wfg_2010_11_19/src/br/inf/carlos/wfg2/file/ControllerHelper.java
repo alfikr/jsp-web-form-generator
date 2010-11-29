@@ -78,13 +78,23 @@ public class ControllerHelper
 		
 		File pkg = new File("." + File.separator + "src" + File.separator + out);
 		
-		if(pkg.mkdirs())
+		if(!pkg.exists())
+		{
+			pkg.mkdirs();
+		}
+		
+		if(pkg.exists())
 		{
 			String classContent = this.classContent();
 			
 			File classe = new File(
 				"." + File.separator + "src" + File.separator + out + File.separator + this.getWebClass().getControllerClassName() + ".java"
 			);
+			
+			if(classe.exists())
+			{
+				classe.delete();
+			}
 			
 			if(classe.createNewFile())
 			{
