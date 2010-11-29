@@ -20,7 +20,32 @@ public class WebComponentSelect extends WebComponent
 	@Override
 	public String renderComponent()
 	{
-		return "";
+		String html = "";
+		String component = "";
+		
+		component += "							<select class='" + this.getComponentCSSClassName() + "' ";
+		component += " id='" + this.getComponentID() + "' name='" + this.getComponentName() + "' ";
+		
+		if(this.isComponentDisabled())
+		{
+			component += " disabled='disabled' ";
+		}
+		
+		component += ">\n";
+		
+		component += "								<c:forEach items='${" + this.getDataList() + "}' var='pp'>\n";
+		component += "									<option value='S'>-Selecione uma Opção-</option>\n";
+		component += "									<option value='${pp." + this.getDataListValue() + "}'>${pp." + this.getDataListDisplayValue() + "}</option>\n";
+		component += "								</c:forEach>\n";
+		
+		html += "				 <label>\n";
+		html += "							" + this.getComponentName()+ ": \n";
+		html += "							<br/>\n";
+		html += component;
+		html += "						</select>\n";
+		html += "						</label>\n";
+		
+		return html;
 	}
 
 	public String getDataList() {
