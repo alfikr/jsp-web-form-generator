@@ -38,26 +38,34 @@ public class RenderHTMLApplication
 		if(this.validateProjectStructure())
 		{
 			try {
-				WebLayout layout = new DefaultWebTableLayout(this.getWebClass().getClazz(), this.getWebClass().getComponents());
+				WebLayout layout = new DefaultWebTableLayout(this.getWebClass(), this.getWebClass().getComponents());
 				
 				String html = layout.createHTML();
 				
-				System.out.println("CRIANDO HTML...");
-				
-				ControllerHelper helper = new ControllerHelper(this.getWebClass());
-				
-				try {
-					if(helper.createClassController())
-					{
-						JOptionPane.showMessageDialog(null, "Controlador criado com sucesso");
+				if(layout.createHTMLFiles())
+				{
+					System.out.println("CRIANDO HTML...");
+					
+					ControllerHelper helper = new ControllerHelper(this.getWebClass());
+					
+					try {
+						if(helper.createClassController())
+						{
+							JOptionPane.showMessageDialog(null, "Controlador criado com sucesso");
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "Erro ao criar o Controlador");
+						}
+					} catch (DefaultApplicationException ee) {
+						ee.printStackTrace();
 					}
-					else
-					{
-						JOptionPane.showMessageDialog(null, "Erro ao criar o Controlador");
-					}
-				} catch (DefaultApplicationException ee) {
-					ee.printStackTrace();
 				}
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Erro ao criar o arquivo JSP do Controlador.");
+				}
+				
 				
 			} catch (WebComponentEmptyException e) {
 				e.printStackTrace();
