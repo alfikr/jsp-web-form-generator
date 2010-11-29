@@ -48,8 +48,7 @@ public abstract class WebComponent implements IWebComponent
 	public static List<Class> getPackageClasses (String pkg) throws IOException
 	{
 		String s = "." + File.separator + "src" + File.separator + pkg.replace('.', File.separatorChar);
-		System.out.println(s);
-		JOptionPane.showMessageDialog(null, s);
+		
 		File pacote = new File(s);
 		
 		if(!pacote.exists())
