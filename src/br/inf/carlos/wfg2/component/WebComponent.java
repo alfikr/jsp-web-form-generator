@@ -9,6 +9,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 /**
  * Esta classe representa todo componente HTML. Esta superclasse abstrata
  * já possui as propriedades comuns dos componentes HTML. 
@@ -46,6 +48,8 @@ public abstract class WebComponent implements IWebComponent
 	public static List<Class> getPackageClasses (String pkg) throws IOException
 	{
 		String s = "." + File.separator + "src" + File.separator + pkg.replace('.', File.separatorChar);
+		System.out.println(s);
+		JOptionPane.showMessageDialog(null, s);
 		File pacote = new File(s);
 		
 		if(!pacote.exists())
