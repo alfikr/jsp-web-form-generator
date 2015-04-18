@@ -1,0 +1,2 @@
+This project allows you to automatically create all the forms of their implementation classes based on their business model. Basically the folders are generated controllers (VRaptor) and JSP.
+All HTML elements are generated based on the annotated classes and attributes and the resulting code is W3C standard.
